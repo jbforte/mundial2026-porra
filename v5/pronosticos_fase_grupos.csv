@@ -1,0 +1,73 @@
+P,Fecha,Sede,H,Local,Visit,G,xG_L,xG_V,Marcador,P(1),P(X),P(2),Conf,km_L,km_V,Factores
+1,11-Jun,Mexico City,13,Mexico,South Africa,A,2.099,0.758,2-0,0.684,0.192,0.123,MEDIO,0,0,Local Mexico | Altitud 2240m
+2,11-Jun,Guadalajara,20,South Korea,Czech Republic,A,1.441,0.947,1-0,0.485,0.267,0.248,BAJO,0,0,Altitud 1566m
+3,12-Jun,Toronto,15,Canada,Bosnia,B,1.269,1.287,1-1,0.362,0.267,0.371,BAJO,0,0,Local Canada
+4,12-Jun,Los Angeles,18,USA,Paraguay,D,2.118,0.754,2-0,0.689,0.19,0.121,MEDIO,0,0,Local USA
+5,13-Jun,Boston,21,Haiti,Scotland,C,0.787,1.78,0-1,0.162,0.228,0.61,MEDIO,0,0,Equilibrado
+6,13-Jun,Vancouver,21,Australia,Turkey,D,0.981,1.598,0-1,0.232,0.25,0.518,BAJO,0,0,Equilibrado
+7,13-Jun,New York,18,Brazil,Morocco,C,0.915,1.472,0-1,0.234,0.264,0.501,BAJO,0,0,Equilibrado
+8,13-Jun,San Francisco,12,Qatar,Switzerland,B,0.702,1.779,0-1,0.142,0.226,0.632,MEDIO,0,0,Equilibrado
+9,14-Jun,Philadelphia,19,Ivory Coast,Ecuador,E,1.135,1.338,1-1,0.316,0.27,0.413,BAJO,0,0,Equilibrado
+10,14-Jun,Houston,12,Germany,Curacao,E,4.541,0.438,4-0,0.92,0.029,0.009,ALTO,0,0,Elo gap 335→Germany | Calor mitigado (techo) | Debut J1 Curacao
+11,14-Jun,Dallas,15,Netherlands,Japan,F,1.506,1.031,1-1,0.482,0.259,0.259,BAJO,0,0,Calor mitigado (techo)
+12,14-Jun,Monterrey,20,Sweden,Tunisia,F,1.339,0.935,1-0,0.46,0.278,0.261,BAJO,0,0,WBGT calor
+13,15-Jun,Miami,18,Saudi Arabia,Uruguay,H,0.626,1.817,0-1,0.122,0.218,0.66,MEDIO,0,0,Elo gap 162→Uruguay | WBGT calor
+14,15-Jun,Atlanta,12,Spain,Cape Verde,H,5.372,0.377,5-0,0.888,0.014,0.003,ALTO,0,0,Elo gap 388→Spain | Calor mitigado (techo) | Debut J1 Cape Verde
+15,15-Jun,Los Angeles,18,Iran,New Zealand,G,2.617,0.52,2-0,0.82,0.126,0.052,ALTO,0,0,Elo gap 269→Iran
+16,15-Jun,Seattle,12,Belgium,Egypt,G,2.273,0.58,2-0,0.758,0.163,0.079,BAJO*,0,0,Elo gap 183→Belgium | Dep.★ Salah
+17,16-Jun,New York,15,France,Senegal,I,2.397,0.641,2-0,0.763,0.155,0.081,BAJO*,0,0,Elo gap 179→France | Dep.★ Mané
+18,16-Jun,Boston,18,Iraq,Norway,I,0.783,2.154,0-2,0.123,0.188,0.688,BAJO*,0,0,Dep.★ Haaland
+19,16-Jun,Kansas City,20,Argentina,Algeria,J,2.859,0.521,2-0,0.847,0.107,0.043,MEDIO*,0,0,Elo gap 246→Argentina | WBGT calor | Dep.★ Messi
+20,16-Jun,San Francisco,21,Austria,Jordan,J,1.965,0.695,1-0,0.674,0.203,0.123,MEDIO,0,0,Debut J1 Jordan
+21,17-Jun,Toronto,19,Ghana,Panama,L,1.176,1.207,1-1,0.354,0.278,0.369,BAJO,0,0,Equilibrado
+22,17-Jun,Dallas,15,England,Croatia,L,1.889,0.723,1-0,0.651,0.213,0.136,MEDIO,0,0,Calor mitigado (techo)
+23,17-Jun,Houston,12,Portugal,DR Congo,K,3.876,0.468,3-0,0.916,0.05,0.016,ALTO,0,0,Elo gap 301→Portugal | Calor mitigado (techo) | Dep.★ Ronaldo
+24,17-Jun,Mexico City,20,Uzbekistan,Colombia,K,0.514,2.738,0-2,0.047,0.116,0.835,ALTO,0,0,Elo gap 233→Colombia | Altitud 2240m | Debut J1 Uzbekistan | Dep.★ L.Díaz
+25,18-Jun,Atlanta,12,Czech Republic,South Africa,A,1.211,1.075,1-1,0.392,0.284,0.324,BAJO,2374,2171,Calor mitigado (techo) | Viaje Czech Republic 2374km | Viaje South Africa 2171km
+26,18-Jun,Los Angeles,12,Switzerland,Bosnia,B,1.488,0.896,1-0,0.51,0.263,0.227,BAJO,505,3504,Viaje Bosnia 3504km
+27,18-Jun,Vancouver,18,Canada,Qatar,B,1.483,0.988,1-0,0.486,0.262,0.252,BAJO,3357,1324,Local Canada | Viaje Canada 3357km
+28,18-Jun,Guadalajara,19,Mexico,South Korea,A,1.565,0.984,1-0,0.508,0.254,0.238,BAJO,475,0,Local Mexico | Altitud 1566m
+29,19-Jun,Philadelphia,21,Brazil,Haiti,C,2.941,0.518,2-0,0.855,0.101,0.04,ALTO,137,408,Elo gap 252→Brazil
+30,19-Jun,Boston,18,Scotland,Morocco,C,0.557,2.606,0-2,0.058,0.13,0.811,ALTO,0,274,Elo gap 216→Morocco
+31,19-Jun,San Francisco,20,Turkey,Paraguay,D,1.732,0.811,1-0,0.593,0.234,0.173,MEDIO,1324,505,Equilibrado
+32,19-Jun,Seattle,12,USA,Australia,D,1.934,0.909,1-0,0.613,0.215,0.171,MEDIO,1553,196,Local USA | Viaje USA 1553km
+33,20-Jun,Toronto,16,Germany,Ivory Coast,E,2.28,0.797,2-0,0.708,0.177,0.115,MEDIO,2100,544,Elo gap 157→Germany | Viaje Germany 2100km
+34,20-Jun,Kansas City,19,Ecuador,Curacao,E,2.448,0.61,2-0,0.778,0.148,0.073,ALTO,1657,1045,Elo gap 220→Ecuador | WBGT calor | Debut J2 Curacao | Viaje Ecuador 1657km
+35,20-Jun,Houston,12,Netherlands,Sweden,F,2.148,0.787,2-0,0.686,0.189,0.124,MEDIO,376,653,Elo gap 152→Netherlands | Calor mitigado (techo)
+36,20-Jun,Monterrey,22,Tunisia,Japan,F,0.678,1.913,0-1,0.124,0.209,0.667,MEDIO,0,844,Elo gap 166→Japan | WBGT calor
+37,21-Jun,Miami,18,Uruguay,Cape Verde,H,2.142,0.597,2-0,0.732,0.178,0.09,ALTO,0,955,Elo gap 204→Uruguay | WBGT calor | Debut J2 Cape Verde
+38,21-Jun,Atlanta,12,Spain,Saudi Arabia,H,4.444,0.398,4-0,0.925,0.029,0.008,ALTO,0,955,Elo gap 347→Spain | Calor mitigado (techo)
+39,21-Jun,Los Angeles,12,Belgium,Iran,G,1.831,0.645,1-0,0.658,0.217,0.125,MEDIO,1553,0,Viaje Belgium 1553km
+40,21-Jun,Vancouver,18,New Zealand,Egypt,G,0.589,2.39,0-2,0.073,0.152,0.774,MEDIO*,1749,196,Elo gap 224→Egypt | Viaje New Zealand 1749km | Dep.★ Salah
+41,22-Jun,New York,20,Norway,Senegal,I,1.169,1.484,1-1,0.299,0.257,0.444,BAJO,274,0,Dep.★ Haaland | Dep.★ Mané
+42,22-Jun,Philadelphia,17,France,Iraq,I,4.863,0.382,4-0,0.914,0.021,0.005,ALTO,137,408,Elo gap 351→France
+43,22-Jun,Dallas,20,Argentina,Austria,J,2.671,0.592,2-0,0.812,0.127,0.059,MEDIO*,739,2315,Elo gap 215→Argentina | Calor mitigado (techo) | Viaje Austria 2315km | Dep.★ Messi
+44,22-Jun,San Francisco,20,Jordan,Algeria,J,0.782,1.644,0-1,0.176,0.244,0.579,MEDIO,0,2399,Debut J2 Jordan | Viaje Algeria 2399km
+45,23-Jun,Boston,16,England,Ghana,L,3.504,0.522,3-0,0.895,0.069,0.026,ALTO,2494,686,Elo gap 289→England | Viaje England 2494km
+46,23-Jun,Toronto,19,Panama,Croatia,L,0.685,1.854,0-1,0.131,0.216,0.653,MEDIO,0,1955,Viaje Croatia 1955km
+47,23-Jun,Houston,12,Portugal,Uzbekistan,K,4.04,0.436,4-0,0.922,0.042,0.013,ALTO,0,1215,Elo gap 323→Portugal | Calor mitigado (techo) | Debut J2 Uzbekistan | Rotación Portugal J3 | Dep.★ Ronaldo
+48,23-Jun,Guadalajara,20,Colombia,DR Congo,K,2.565,0.629,2-0,0.79,0.139,0.069,ALTO,475,1288,Elo gap 212→Colombia | Altitud 1566m | Dep.★ L.Díaz
+49,24-Jun,Miami,18,Scotland,Brazil,C,0.699,1.886,0-1,0.131,0.213,0.656,MEDIO,1973,1620,WBGT calor | Viaje Scotland 1973km | Viaje Brazil 1620km | Rotación Brazil J3
+50,24-Jun,Atlanta,18,Morocco,Haiti,C,3.959,0.43,3-0,0.922,0.044,0.014,ALTO,1476,1068,Elo gap 332→Morocco | Calor mitigado (techo)
+51,24-Jun,Vancouver,12,Switzerland,Canada,B,1.596,0.984,1-0,0.516,0.251,0.233,BAJO,1749,0,Viaje Switzerland 1749km
+52,24-Jun,Seattle,12,Bosnia,Qatar,B,1.423,0.922,1-0,0.487,0.269,0.244,BAJO,1553,196,Viaje Bosnia 1553km
+53,24-Jun,Mexico City,19,Czech Republic,Mexico,A,0.753,2.023,0-2,0.129,0.2,0.671,MEDIO,2171,475,Altitud 2240m | Viaje Czech Republic 2171km
+54,24-Jun,Monterrey,19,South Africa,South Korea,A,0.858,1.446,0-1,0.223,0.268,0.509,BAJO,1772,646,WBGT calor | Viaje South Africa 1772km
+55,25-Jun,Philadelphia,16,Curacao,Ivory Coast,E,0.699,2.324,0-2,0.095,0.166,0.738,MEDIO,1657,544,Elo gap 177→Ivory Coast | Debut J3 Curacao | Viaje Curacao 1657km
+56,25-Jun,New York,16,Ecuador,Germany,E,0.792,2.092,0-2,0.13,0.195,0.674,MEDIO,1747,540,Viaje Ecuador 1747km | Rotación Germany J3
+57,25-Jun,Dallas,18,Japan,Sweden,F,1.737,0.871,1-0,0.579,0.235,0.186,MEDIO,844,376,Calor mitigado (techo)
+58,25-Jun,Kansas City,18,Tunisia,Netherlands,F,0.612,2.538,0-2,0.068,0.14,0.79,ALTO,1582,1045,Elo gap 209→Netherlands | WBGT calor | Viaje Tunisia 1582km
+59,25-Jun,Los Angeles,19,Turkey,USA,D,1.12,1.476,1-1,0.287,0.259,0.453,BAJO,505,1553,Viaje USA 1553km
+60,25-Jun,San Francisco,19,Paraguay,Australia,D,1.018,1.334,1-1,0.285,0.276,0.439,BAJO,0,1134,Equilibrado
+61,26-Jun,Boston,15,Norway,France,I,0.615,3.075,0-3,0.046,0.1,0.85,MEDIO*,274,408,Elo gap 238→France | Rotación France J3 | Dep.★ Haaland
+62,26-Jun,Toronto,15,Senegal,Iraq,I,2.218,0.666,2-0,0.728,0.174,0.097,BAJO*,540,544,Elo gap 172→Senegal | Dep.★ Mané
+63,26-Jun,Seattle,20,Egypt,Iran,G,0.931,1.183,0-1,0.288,0.295,0.417,BAJO,196,1553,Viaje Iran 1553km | Dep.★ Salah
+64,26-Jun,Vancouver,20,New Zealand,Belgium,G,0.362,5.016,0-5,0.004,0.018,0.909,ALTO,0,1749,Elo gap 407→Belgium | Viaje Belgium 1749km | Rotación Belgium J3
+65,26-Jun,Houston,19,Cape Verde,Saudi Arabia,H,1.027,1.219,1-1,0.309,0.286,0.405,BAJO,1547,1135,Calor mitigado (techo) | Debut J3 Cape Verde | Viaje Cape Verde 1547km
+66,26-Jun,Guadalajara,18,Uruguay,Spain,H,0.569,2.211,0-2,0.081,0.168,0.751,MEDIO,2440,2374,Elo gap 184→Spain | Altitud 1566m | Viaje Uruguay 2440km | Viaje Spain 2374km | Rotación Spain J3
+67,27-Jun,New York,17,Panama,England,L,0.511,3.345,0-3,0.029,0.076,0.888,ALTO,540,274,Elo gap 274→England | Rotación England J3
+68,27-Jun,Philadelphia,17,Croatia,Ghana,L,1.964,0.683,1-0,0.676,0.203,0.12,MEDIO,544,408,Elo gap 156→Croatia
+69,27-Jun,Kansas City,21,Algeria,Austria,J,1.026,1.315,1-1,0.291,0.277,0.432,BAJO,2399,739,WBGT calor | Viaje Algeria 2399km
+70,27-Jun,Dallas,21,Jordan,Argentina,J,0.387,4.343,0-4,0.008,0.031,0.927,MEDIO*,2315,0,Elo gap 350→Argentina | Calor mitigado (techo) | Debut J3 Jordan | Viaje Jordan 2315km | Rotación Argentina J3
+71,27-Jun,Miami,19,Colombia,Portugal,K,0.853,1.761,0-1,0.179,0.232,0.589,BAJO*,2440,1547,WBGT calor | Viaje Colombia 2440km | Viaje Portugal 1547km | Dep.★ L.Díaz | Dep.★ Ronaldo
+72,27-Jun,Atlanta,19,DR Congo,Uzbekistan,K,1.274,1.113,1-1,0.401,0.276,0.323,BAJO,2374,1135,Calor mitigado (techo) | Debut J3 Uzbekistan | Viaje DR Congo 2374km

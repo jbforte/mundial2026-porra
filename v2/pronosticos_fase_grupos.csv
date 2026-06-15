@@ -1,0 +1,73 @@
+P,Fecha,Sede,H,Local,Visit,G,xG_L,xG_V,Marcador,P(1),P(X),P(2),Conf,km_L,km_V,Factores
+1,11-Jun,Mexico City,13,Mexico,South Africa,A,2.036,0.839,2-0,0.652,0.203,0.145,MEDIO,0,0,Local Mexico | Altitud 2240m
+2,11-Jun,Guadalajara,20,South Korea,Czech Republic,A,1.583,1.037,1-1,0.5,0.251,0.248,BAJO,0,0,Altitud 1566m
+3,12-Jun,Toronto,15,Canada,Bosnia,B,1.395,1.45,1-1,0.362,0.25,0.387,BAJO,0,0,Local Canada
+4,12-Jun,Los Angeles,18,USA,Paraguay,D,2.077,0.833,2-0,0.662,0.198,0.14,MEDIO,0,0,Local USA
+5,13-Jun,Boston,21,Haiti,Scotland,C,0.861,1.753,0-1,0.182,0.233,0.585,MEDIO,0,0,Equilibrado
+6,13-Jun,Vancouver,21,Australia,Turkey,D,1.067,1.683,1-1,0.24,0.242,0.518,BAJO,0,0,Equilibrado
+7,13-Jun,New York,18,Brazil,Morocco,C,1.222,1.522,1-1,0.305,0.252,0.442,BAJO,0,0,Equilibrado
+8,13-Jun,San Francisco,12,Qatar,Switzerland,B,0.918,1.809,0-1,0.188,0.228,0.584,MEDIO,0,0,Equilibrado
+9,14-Jun,Philadelphia,19,Ivory Coast,Ecuador,E,1.208,1.507,1-1,0.304,0.254,0.441,BAJO,0,0,Equilibrado
+10,14-Jun,Houston,12,Germany,Curacao,E,2.303,0.308,2-0,0.827,0.136,0.037,ALTO,0,0,Elo gap 335→Germany | Calor mediodía | Debut Curacao
+11,14-Jun,Dallas,15,Netherlands,Japan,F,1.51,1.191,1-1,0.446,0.254,0.3,BAJO,0,0,Sede calurosa
+12,14-Jun,Monterrey,20,Sweden,Tunisia,F,1.544,1.115,1-1,0.472,0.254,0.274,BAJO,0,0,Sede calurosa
+13,15-Jun,Miami,18,Saudi Arabia,Uruguay,H,0.743,1.923,0-1,0.137,0.211,0.653,MEDIO,0,0,Elo gap 162→Uruguay | Sede calurosa
+14,15-Jun,Atlanta,12,Spain,Cape Verde,H,2.572,0.241,2-0,0.873,0.103,0.022,ALTO,0,0,Elo gap 388→Spain | Debut Cape Verde
+15,15-Jun,Los Angeles,18,Iran,New Zealand,G,2.2,0.463,2-0,0.775,0.161,0.064,ALTO,0,0,Elo gap 269→Iran
+16,15-Jun,Seattle,12,Belgium,Egypt,G,2.031,0.693,2-0,0.687,0.196,0.117,BAJO*,0,0,Elo gap 183→Belgium | Dep.★ Salah
+17,16-Jun,New York,15,France,Senegal,I,2.141,0.719,2-0,0.702,0.186,0.112,BAJO*,0,0,Elo gap 179→France | Dep.★ Mané
+18,16-Jun,Boston,18,Iraq,Norway,I,0.886,1.862,0-1,0.174,0.222,0.603,BAJO*,0,0,Dep.★ Haaland
+19,16-Jun,Kansas City,20,Argentina,Algeria,J,2.292,0.486,2-0,0.783,0.153,0.063,MEDIO*,0,0,Elo gap 264→Argentina | Sede calurosa | Dep.★ Messi
+20,16-Jun,San Francisco,21,Austria,Jordan,J,1.88,0.777,1-0,0.635,0.217,0.148,MEDIO,0,0,Debut Jordan
+21,17-Jun,Toronto,19,Ghana,Panama,L,1.276,1.397,1-1,0.342,0.259,0.398,BAJO,0,0,Equilibrado
+22,17-Jun,Dallas,15,England,Croatia,L,1.828,0.84,1-0,0.607,0.225,0.168,MEDIO,0,0,Sede calurosa
+23,17-Jun,Houston,12,Portugal,DR Congo,K,2.42,0.389,2-0,0.824,0.132,0.043,ALTO,0,0,Elo gap 301→Portugal | Calor mediodía | Dep.★ Ronaldo
+24,17-Jun,Mexico City,20,Uzbekistan,Colombia,K,0.47,2.154,0-2,0.067,0.167,0.765,ALTO,0,0,Elo gap 233→Colombia | Altitud 2240m | Debut Uzbekistan | Dep.★ L.Díaz
+25,18-Jun,Atlanta,12,Czech Republic,South Africa,A,1.382,1.326,1-1,0.384,0.258,0.358,BAJO,2374,2171,Equilibrado
+26,18-Jun,Los Angeles,12,Switzerland,Bosnia,B,1.622,1.126,1-1,0.489,0.247,0.264,BAJO,505,3504,Equilibrado
+27,18-Jun,Vancouver,18,Canada,Qatar,B,1.606,1.219,1-1,0.464,0.246,0.29,BAJO,3357,1324,Local Canada
+28,18-Jun,Guadalajara,19,Mexico,South Korea,A,1.76,1.108,1-1,0.526,0.235,0.239,BAJO,475,0,Local Mexico | Altitud 1566m
+29,19-Jun,Philadelphia,21,Brazil,Haiti,C,2.193,0.381,2-0,0.794,0.155,0.051,ALTO,137,408,Elo gap 305→Brazil
+30,19-Jun,Boston,18,Scotland,Morocco,C,0.593,2.193,0-2,0.086,0.172,0.742,ALTO,0,274,Elo gap 216→Morocco
+31,19-Jun,San Francisco,20,Turkey,Paraguay,D,1.793,0.941,1-0,0.574,0.23,0.195,MEDIO,1324,505,Equilibrado
+32,19-Jun,Seattle,12,USA,Australia,D,1.963,0.951,1-0,0.609,0.214,0.177,MEDIO,1553,196,Local USA
+33,20-Jun,Toronto,16,Germany,Ivory Coast,E,1.986,0.792,1-0,0.653,0.206,0.141,MEDIO,2100,544,Elo gap 157→Germany
+34,20-Jun,Kansas City,19,Ecuador,Curacao,E,2.092,0.554,2-0,0.734,0.18,0.086,ALTO,1657,1045,Elo gap 220→Ecuador | Sede calurosa | Debut Curacao
+35,20-Jun,Houston,12,Netherlands,Sweden,F,1.854,0.765,1-0,0.632,0.219,0.148,MEDIO,376,653,Elo gap 152→Netherlands | Calor mediodía
+36,20-Jun,Monterrey,22,Tunisia,Japan,F,0.742,1.963,0-1,0.133,0.206,0.661,MEDIO,0,844,Elo gap 166→Japan | Sede calurosa
+37,21-Jun,Miami,18,Uruguay,Cape Verde,H,2.046,0.613,2-0,0.71,0.19,0.1,ALTO,0,955,Elo gap 204→Uruguay | Sede calurosa | Debut Cape Verde
+38,21-Jun,Atlanta,12,Spain,Saudi Arabia,H,2.507,0.315,2-0,0.851,0.117,0.031,ALTO,0,955,Elo gap 347→Spain
+39,21-Jun,Los Angeles,12,Belgium,Iran,G,1.882,0.831,1-0,0.622,0.218,0.16,MEDIO,1553,0,Equilibrado
+40,21-Jun,Vancouver,18,New Zealand,Egypt,G,0.572,2.103,0-2,0.088,0.18,0.731,MEDIO*,1749,196,Elo gap 224→Egypt | Dep.★ Salah
+41,22-Jun,New York,20,Norway,Senegal,I,1.179,1.598,1-1,0.281,0.248,0.471,BAJO,274,0,Dep.★ Haaland | Dep.★ Mané
+42,22-Jun,Philadelphia,17,France,Iraq,I,2.564,0.309,2-0,0.858,0.111,0.029,ALTO,137,408,Elo gap 351→France
+43,22-Jun,Dallas,20,Argentina,Austria,J,2.214,0.547,2-0,0.756,0.166,0.077,MEDIO*,739,2315,Elo gap 233→Argentina | Sede calurosa | Dep.★ Messi
+44,22-Jun,San Francisco,20,Jordan,Algeria,J,0.913,1.747,0-1,0.195,0.235,0.57,MEDIO,0,2399,Debut Jordan
+45,23-Jun,Boston,16,England,Ghana,L,2.329,0.425,2-0,0.803,0.144,0.052,ALTO,2494,686,Elo gap 289→England
+46,23-Jun,Toronto,19,Panama,Croatia,L,0.823,1.829,0-1,0.164,0.224,0.612,MEDIO,0,1955,Equilibrado
+47,23-Jun,Houston,12,Portugal,Uzbekistan,K,2.463,0.352,2-0,0.838,0.124,0.037,ALTO,0,1215,Elo gap 323→Portugal | Calor mediodía | Debut Uzbekistan | Dep.★ Ronaldo
+48,23-Jun,Guadalajara,20,Colombia,DR Congo,K,2.097,0.578,2-0,0.729,0.181,0.09,ALTO,475,1288,Elo gap 212→Colombia | Altitud 1566m | Dep.★ L.Díaz
+49,24-Jun,Miami,18,Scotland,Brazil,C,0.642,1.977,0-1,0.111,0.199,0.69,MEDIO,1973,1620,Elo gap 189→Brazil | Sede calurosa
+50,24-Jun,Atlanta,18,Morocco,Haiti,C,2.457,0.34,2-0,0.84,0.124,0.036,ALTO,1476,1068,Elo gap 332→Morocco
+51,24-Jun,Vancouver,12,Switzerland,Canada,B,1.708,1.144,1-1,0.506,0.239,0.255,BAJO,1749,0,Equilibrado
+52,24-Jun,Seattle,12,Bosnia,Qatar,B,1.553,1.135,1-1,0.47,0.252,0.278,BAJO,1553,196,Equilibrado
+53,24-Jun,Mexico City,19,Czech Republic,Mexico,A,0.802,2.013,0-2,0.14,0.203,0.656,MEDIO,2171,475,Altitud 2240m
+54,24-Jun,Monterrey,19,South Africa,South Korea,A,1.05,1.613,1-1,0.247,0.248,0.505,BAJO,1772,646,Sede calurosa
+55,25-Jun,Philadelphia,16,Curacao,Ivory Coast,E,0.696,2.024,0-2,0.118,0.197,0.685,MEDIO,1657,544,Elo gap 177→Ivory Coast | Debut Curacao
+56,25-Jun,New York,16,Ecuador,Germany,E,0.94,1.84,0-1,0.189,0.226,0.585,MEDIO,1747,540,Equilibrado
+57,25-Jun,Dallas,18,Japan,Sweden,F,1.769,0.927,1-0,0.572,0.233,0.195,MEDIO,844,376,Sede calurosa
+58,25-Jun,Kansas City,18,Tunisia,Netherlands,F,0.614,2.063,0-2,0.099,0.188,0.713,ALTO,1582,1045,Elo gap 209→Netherlands | Sede calurosa
+59,25-Jun,Los Angeles,19,Turkey,USA,D,1.262,1.648,1-1,0.293,0.242,0.464,BAJO,505,1553,Equilibrado
+60,25-Jun,San Francisco,19,Paraguay,Australia,D,1.217,1.47,1-1,0.313,0.256,0.43,BAJO,0,1134,Equilibrado
+61,26-Jun,Boston,15,Norway,France,I,0.574,2.315,0-2,0.075,0.158,0.766,MEDIO*,274,408,Elo gap 238→France | Dep.★ Haaland
+62,26-Jun,Toronto,15,Senegal,Iraq,I,1.996,0.73,1-0,0.671,0.202,0.127,BAJO*,540,544,Elo gap 172→Senegal | Dep.★ Mané
+63,26-Jun,Seattle,20,Egypt,Iran,G,1.166,1.505,1-1,0.294,0.255,0.45,BAJO,196,1553,Dep.★ Salah
+64,26-Jun,Vancouver,20,New Zealand,Belgium,G,0.232,2.492,0-2,0.022,0.109,0.867,ALTO,0,1749,Elo gap 407→Belgium
+65,26-Jun,Houston,19,Cape Verde,Saudi Arabia,H,1.189,1.473,1-1,0.306,0.257,0.437,BAJO,1547,1135,Sede calurosa | Debut Cape Verde
+66,26-Jun,Guadalajara,18,Uruguay,Spain,H,0.659,2.024,0-2,0.111,0.195,0.694,MEDIO,2440,2374,Elo gap 184→Spain | Altitud 1566m
+67,27-Jun,New York,17,Panama,England,L,0.459,2.3,0-2,0.058,0.15,0.791,ALTO,540,274,Elo gap 274→England
+68,27-Jun,Philadelphia,17,Croatia,Ghana,L,1.88,0.772,1-0,0.636,0.217,0.147,MEDIO,544,408,Elo gap 156→Croatia
+69,27-Jun,Kansas City,21,Algeria,Austria,J,1.23,1.441,1-1,0.322,0.258,0.42,BAJO,2399,739,Sede calurosa
+70,27-Jun,Dallas,21,Jordan,Argentina,J,0.286,2.493,0-2,0.028,0.115,0.856,MEDIO*,2315,0,Elo gap 369→Argentina | Sede calurosa | Debut Jordan | Dep.★ Messi
+71,27-Jun,Miami,19,Colombia,Portugal,K,1.042,1.776,1-1,0.221,0.233,0.546,BAJO,2440,1547,Sede calurosa | Dep.★ L.Díaz | Dep.★ Ronaldo
+72,27-Jun,Atlanta,19,DR Congo,Uzbekistan,K,1.426,1.272,1-1,0.407,0.257,0.336,BAJO,2374,1135,Debut Uzbekistan

@@ -1,0 +1,73 @@
+P,Fecha,Sede,H,Local,Visit,G,xG_L,xG_V,Marcador,P(1),P(X),P(2),Conf,Factores
+1,11-Jun,Mexico City,13,Mexico,South Africa,A,1.956,0.79,1-0,0.648,0.209,0.143,MEDIO,Elo gap 153→Mexico
+2,11-Jun,Guadalajara,20,South Korea,Czech Republic,A,1.701,1.029,1-1,0.531,0.24,0.229,BAJO,Equilibrado
+3,12-Jun,Toronto,15,Canada,Bosnia,B,1.267,1.452,1-1,0.33,0.256,0.414,BAJO,Equilibrado
+4,12-Jun,Los Angeles,18,USA,Paraguay,D,1.985,0.74,1-0,0.666,0.204,0.13,MEDIO,Elo gap 166→USA
+5,13-Jun,Boston,21,Haiti,Scotland,C,0.933,1.678,0-1,0.209,0.242,0.549,BAJO,Equilibrado
+6,13-Jun,Vancouver,21,Australia,Turkey,D,1.253,1.493,1-1,0.318,0.254,0.428,BAJO,Equilibrado
+7,13-Jun,New York,18,Brazil,Morocco,C,1.058,1.663,1-1,0.241,0.244,0.515,BAJO,Equilibrado
+8,13-Jun,San Francisco,12,Qatar,Switzerland,B,1.097,1.622,1-1,0.257,0.247,0.496,BAJO,Equilibrado
+9,14-Jun,Philadelphia,19,Ivory Coast,Ecuador,E,1.159,1.555,1-1,0.284,0.252,0.465,BAJO,Equilibrado
+10,14-Jun,Houston,12,Germany,Curacao,E,2.396,0.344,2-0,0.831,0.13,0.038,ALTO,Elo gap 313→Germany | Debut Curacao
+11,14-Jun,Dallas,15,Netherlands,Japan,F,1.538,1.261,1-1,0.438,0.25,0.312,BAJO,Equilibrado
+12,14-Jun,Monterrey,20,Sweden,Tunisia,F,1.506,1.206,1-1,0.442,0.254,0.304,BAJO,Equilibrado
+13,15-Jun,Miami,18,Saudi Arabia,Uruguay,H,0.877,1.787,0-1,0.181,0.23,0.589,MEDIO,Equilibrado
+14,15-Jun,Atlanta,12,Spain,Cape Verde,H,2.589,0.226,2-0,0.878,0.1,0.02,ALTO,Elo gap 400→Spain | Debut Cape Verde
+15,15-Jun,Los Angeles,18,Iran,New Zealand,G,2.344,0.321,2-0,0.83,0.133,0.037,ALTO,Elo gap 344→Iran
+16,15-Jun,Seattle,12,Belgium,Egypt,G,2.02,0.703,2-0,0.682,0.198,0.119,BAJO*,Elo gap 180→Belgium | Dep.★ Salah
+17,16-Jun,New York,15,France,Senegal,I,2.153,0.708,2-0,0.706,0.184,0.109,BAJO*,Elo gap 183→France | Dep.★ Mané
+18,16-Jun,Boston,18,Iraq,Norway,I,1.191,1.528,1-1,0.296,0.253,0.451,BAJO,Dep.★ Haaland
+19,16-Jun,Kansas City,20,Argentina,Algeria,J,2.381,0.399,2-0,0.816,0.137,0.046,MEDIO*,Elo gap 305→Argentina | Dep.★ Messi
+20,16-Jun,San Francisco,21,Austria,Jordan,J,1.8,0.849,1-0,0.599,0.228,0.173,MEDIO,Debut Jordan
+21,17-Jun,Toronto,19,Ghana,Panama,L,1.057,1.617,1-1,0.248,0.248,0.504,BAJO,Equilibrado
+22,17-Jun,Dallas,15,England,Croatia,L,1.821,0.91,1-0,0.588,0.227,0.185,MEDIO,Equilibrado
+23,17-Jun,Houston,12,Portugal,DR Congo,K,2.389,0.418,2-0,0.813,0.138,0.048,ALTO,Elo gap 286→Portugal | Dep.★ Ronaldo
+24,17-Jun,Mexico City,20,Uzbekistan,Colombia,K,0.514,2.158,0-2,0.075,0.17,0.755,ALTO,Elo gap 235→Colombia | Debut Uzbekistan | Dep.★ L.Díaz
+25,18-Jun,Atlanta,12,Czech Republic,South Africa,A,1.248,1.46,1-1,0.323,0.256,0.421,BAJO,Equilibrado
+26,18-Jun,Los Angeles,12,Switzerland,Bosnia,B,1.65,1.101,1-1,0.502,0.245,0.254,BAJO,Equilibrado
+27,18-Jun,Vancouver,18,Canada,Qatar,B,1.238,1.44,1-1,0.324,0.258,0.418,BAJO,Equilibrado
+28,18-Jun,Guadalajara,19,Mexico,South Korea,A,1.755,1.001,1-1,0.551,0.235,0.214,MEDIO,Equilibrado
+29,19-Jun,Philadelphia,21,Brazil,Haiti,C,2.186,0.389,2-0,0.791,0.156,0.053,ALTO,Elo gap 302→Brazil
+30,19-Jun,Boston,18,Scotland,Morocco,C,0.465,2.33,0-2,0.058,0.148,0.794,ALTO,Elo gap 269→Morocco
+31,19-Jun,San Francisco,20,Turkey,Paraguay,D,1.778,0.957,1-0,0.567,0.232,0.201,MEDIO,Equilibrado
+32,19-Jun,Seattle,12,USA,Australia,D,1.73,1.005,1-1,0.544,0.237,0.219,BAJO,Equilibrado
+33,20-Jun,Toronto,16,Germany,Ivory Coast,E,2.053,0.729,2-0,0.682,0.196,0.122,MEDIO,Elo gap 178→Germany
+34,20-Jun,Kansas City,19,Ecuador,Curacao,E,2.012,0.632,2-0,0.699,0.195,0.106,MEDIO,Elo gap 191→Ecuador | Debut Curacao
+35,20-Jun,Houston,12,Netherlands,Sweden,F,2.08,0.693,2-0,0.697,0.191,0.112,MEDIO,Elo gap 189→Netherlands
+36,20-Jun,Monterrey,22,Tunisia,Japan,F,0.683,2.098,0-2,0.109,0.188,0.702,MEDIO,Elo gap 185→Japan
+37,21-Jun,Miami,18,Uruguay,Cape Verde,H,2.035,0.624,2-0,0.705,0.191,0.103,ALTO,Elo gap 200→Uruguay | Debut Cape Verde
+38,21-Jun,Atlanta,12,Spain,Saudi Arabia,H,2.459,0.359,2-0,0.836,0.125,0.038,ALTO,Elo gap 321→Spain
+39,21-Jun,Los Angeles,12,Belgium,Iran,G,1.833,0.881,1-0,0.598,0.225,0.177,MEDIO,Equilibrado
+40,21-Jun,Vancouver,18,New Zealand,Egypt,G,0.426,2.252,0-2,0.055,0.152,0.792,MEDIO*,Elo gap 287→Egypt | Dep.★ Salah
+41,22-Jun,New York,20,Norway,Senegal,I,0.906,1.861,0-1,0.179,0.223,0.598,BAJO*,Dep.★ Haaland | Dep.★ Mané
+42,22-Jun,Philadelphia,17,France,Iraq,I,2.547,0.324,2-0,0.853,0.114,0.031,ALTO,Elo gap 342→France
+43,22-Jun,Dallas,20,Argentina,Austria,J,2.325,0.459,2-0,0.795,0.148,0.057,MEDIO*,Elo gap 279→Argentina | Dep.★ Messi
+44,22-Jun,San Francisco,20,Jordan,Algeria,J,0.976,1.684,0-1,0.218,0.242,0.54,BAJO,Debut Jordan
+45,23-Jun,Boston,16,England,Ghana,L,2.403,0.359,2-0,0.829,0.131,0.04,ALTO,Elo gap 324→England
+46,23-Jun,Toronto,19,Panama,Croatia,L,0.833,1.822,0-1,0.167,0.225,0.608,MEDIO,Equilibrado
+47,23-Jun,Houston,12,Portugal,Uzbekistan,K,2.428,0.384,2-0,0.826,0.131,0.042,ALTO,Elo gap 305→Portugal | Debut Uzbekistan | Dep.★ Ronaldo
+48,23-Jun,Guadalajara,20,Colombia,DR Congo,K,2.109,0.591,2-0,0.727,0.181,0.091,ALTO,Elo gap 216→Colombia | Dep.★ L.Díaz
+49,24-Jun,Miami,18,Scotland,Brazil,C,0.618,1.972,0-1,0.107,0.198,0.695,ALTO,Elo gap 207→Brazil
+50,24-Jun,Atlanta,18,Morocco,Haiti,C,2.515,0.291,2-0,0.857,0.113,0.028,ALTO,Elo gap 364→Morocco
+51,24-Jun,Vancouver,12,Switzerland,Canada,B,1.739,1.012,1-1,0.544,0.237,0.219,BAJO,Equilibrado
+52,24-Jun,Seattle,12,Bosnia,Qatar,B,1.332,1.351,1-1,0.366,0.259,0.375,BAJO,Equilibrado
+53,24-Jun,Mexico City,19,Czech Republic,Mexico,A,0.706,2.046,0-2,0.118,0.195,0.687,MEDIO,Elo gap 182→Mexico
+54,24-Jun,Monterrey,19,South Africa,South Korea,A,1.128,1.594,1-1,0.269,0.249,0.482,BAJO,Equilibrado
+55,25-Jun,Philadelphia,16,Curacao,Ivory Coast,E,0.828,1.887,0-1,0.159,0.218,0.623,MEDIO,Debut Curacao
+56,25-Jun,New York,16,Ecuador,Germany,E,0.889,1.867,0-1,0.174,0.222,0.604,MEDIO,Equilibrado
+57,25-Jun,Dallas,18,Japan,Sweden,F,1.99,0.809,1-0,0.65,0.206,0.144,MEDIO,Elo gap 152→Japan
+58,25-Jun,Kansas City,18,Tunisia,Netherlands,F,0.581,2.176,0-2,0.085,0.173,0.742,ALTO,Elo gap 222→Netherlands
+59,25-Jun,Los Angeles,19,Turkey,USA,D,1.129,1.63,1-1,0.264,0.246,0.49,BAJO,Equilibrado
+60,25-Jun,San Francisco,19,Paraguay,Australia,D,1.052,1.64,1-1,0.243,0.246,0.511,BAJO,Equilibrado
+61,26-Jun,Boston,15,Norway,France,I,0.399,2.494,0-2,0.042,0.126,0.831,MEDIO*,Elo gap 314→France | Dep.★ Haaland
+62,26-Jun,Toronto,15,Senegal,Iraq,I,1.953,0.772,1-0,0.652,0.208,0.14,BAJO*,Elo gap 159→Senegal | Dep.★ Mané
+63,26-Jun,Seattle,20,Egypt,Iran,G,1.123,1.551,1-1,0.275,0.253,0.472,BAJO,Dep.★ Salah
+64,26-Jun,Vancouver,20,New Zealand,Belgium,G,0.169,2.563,0-2,0.015,0.096,0.887,ALTO,Elo gap 467→Belgium
+65,26-Jun,Houston,19,Cape Verde,Saudi Arabia,H,1.049,1.613,1-1,0.247,0.248,0.505,BAJO,Debut Cape Verde
+66,26-Jun,Guadalajara,18,Uruguay,Spain,H,0.644,2.163,0-2,0.097,0.179,0.724,MEDIO,Elo gap 200→Spain
+67,27-Jun,New York,17,Panama,England,L,0.513,2.244,0-2,0.069,0.16,0.77,ALTO,Elo gap 250→England
+68,27-Jun,Philadelphia,17,Croatia,Ghana,L,2.041,0.61,2-0,0.71,0.19,0.1,ALTO,Elo gap 211→Croatia
+69,27-Jun,Kansas City,21,Algeria,Austria,J,1.253,1.476,1-1,0.322,0.255,0.424,BAJO,Equilibrado
+70,27-Jun,Dallas,21,Jordan,Argentina,J,0.256,2.526,0-2,0.024,0.109,0.866,MEDIO*,Elo gap 391→Argentina | Debut Jordan | Dep.★ Messi
+71,27-Jun,Miami,19,Colombia,Portugal,K,1.087,1.708,1-1,0.242,0.239,0.519,BAJO,Dep.★ L.Díaz | Dep.★ Ronaldo
+72,27-Jun,Atlanta,19,DR Congo,Uzbekistan,K,1.422,1.286,1-1,0.403,0.257,0.34,BAJO,Debut Uzbekistan

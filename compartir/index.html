@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a3d20">
+<title>Mundial 2026 · Pronósticos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --grass-a:#1c8a43; --grass-b:#178a3f; --grass-dk:#0a3d20; --grass-dk2:#072e18;
+  --card:#ffffff; --ink:#0f1e16; --muted:#5b6b62; --line:#e4ebe6;
+  --gold:#f4c430; --gold-dk:#c9971f; --gold-soft:#fde68a;
+  --green:#16a34a; --amber:#f59e0b; --blue:#2563eb; --red:#dc2626; --slate:#94a3b8;
+  --shadow:0 2px 6px rgba(7,46,24,.10),0 14px 38px rgba(7,46,24,.16);
+  --shadow-sm:0 1px 3px rgba(7,46,24,.12);
+  --radius:16px;
+  --cond:"Barlow Condensed",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);
+  -webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom);
+  background:
+    repeating-linear-gradient(0deg,var(--grass-dk) 0 46px,var(--grass-dk2) 46px 92px);
+  background-attachment:fixed}
+img{display:block}
+
+/* ===== HERO = CAMPO DE FÚTBOL ===== */
+.hero{position:relative;overflow:hidden;color:#fff;
+  background:repeating-linear-gradient(90deg,var(--grass-a) 0 64px,var(--grass-b) 64px 128px);
+  padding:26px 18px 70px;border-bottom:3px solid rgba(255,255,255,.25)}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(255,255,255,.18),transparent 60%),
+             linear-gradient(180deg,rgba(7,46,24,.05),rgba(7,46,24,.45))}
+.pitch{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.55}
+.hero-in{position:relative;z-index:2;max-width:1080px;margin:0 auto;text-align:center}
+
+/* emblema */
+.emblem{width:96px;height:96px;margin:0 auto 6px;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
+.kicker{font-family:var(--cond);font-weight:700;letter-spacing:.32em;font-size:.8rem;
+  text-transform:uppercase;color:var(--gold-soft);margin-top:4px}
+h1{font-family:var(--cond);font-weight:900;font-size:2.5rem;line-height:.98;letter-spacing:.01em;
+  text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.35);margin-top:2px}
+h1 .yr{color:var(--gold)}
+.tagline{font-size:.92rem;opacity:.95;margin-top:8px;font-weight:500}
+.host{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.host .h{display:flex;align-items:center;gap:7px;background:rgba(0,0,0,.22);
+  border:1px solid rgba(255,255,255,.25);padding:6px 13px;border-radius:999px;
+  font-family:var(--cond);font-weight:600;font-size:.86rem;letter-spacing:.03em}
+.host img{width:24px;height:17px;border-radius:3px;box-shadow:0 1px 2px rgba(0,0,0,.3)}
+.meta-strip{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.ms{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:8px;
+  padding:5px 11px;font-size:.74rem;font-weight:600;display:flex;align-items:center;gap:5px}
+.ms b{font-family:var(--cond);font-size:.92rem;font-weight:800;letter-spacing:.02em}
+
+/* ===== KPIs ===== */
+.kpis{max-width:1080px;margin:-48px auto 0;padding:0 18px;position:relative;z-index:5;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kpi{background:var(--card);border-radius:14px;padding:15px 10px;box-shadow:var(--shadow);
+  text-align:center;border-top:3px solid var(--gold)}
+.kpi .ic{font-size:1.05rem;line-height:1}
+.kpi .n{font-family:var(--cond);font-size:1.7rem;font-weight:900;color:var(--grass-dk);line-height:1;margin-top:2px}
+.kpi .l{font-size:.66rem;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.05em;font-weight:700}
+
+/* favorito + marcador strip */
+.fav{max-width:1080px;margin:14px auto 0;padding:0 18px;display:grid;
+  grid-template-columns:1fr auto;gap:12px}
+.fav-in{background:linear-gradient(100deg,#0a3d20,#11512c);border-radius:14px;box-shadow:var(--shadow);
+  padding:13px 18px;display:flex;align-items:center;gap:14px;border:1px solid rgba(244,196,48,.35);color:#fff}
+.fav .trophy{font-size:1.4rem;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))}
+.fav img{width:40px;height:28px;border-radius:5px;box-shadow:0 2px 5px rgba(0,0,0,.35)}
+.fav .ft{font-family:var(--cond);text-transform:uppercase;letter-spacing:.14em;font-size:.68rem;color:var(--gold-soft);font-weight:700}
+.fav .fn{font-family:var(--cond);font-weight:800;font-size:1.25rem;line-height:1}
+.fav .fp{margin-left:auto;text-align:right;font-size:.72rem;opacity:.85}
+.fav .fp b{font-family:var(--cond);font-size:1.5rem;font-weight:900;display:block;color:var(--gold)}
+/* marcador de puntos */
+.scoreboard{background:linear-gradient(100deg,#0a3d20,#11512c);border-radius:14px;
+  box-shadow:var(--shadow);border:1px solid rgba(244,196,48,.35);
+  padding:10px 16px;display:flex;align-items:center;gap:10px;color:#fff;white-space:nowrap}
+.sb-player{text-align:center;min-width:72px}
+.sb-name{font-family:var(--cond);font-size:.68rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--gold-soft)}
+.sb-pts{font-family:var(--cond);font-size:2rem;font-weight:900;color:var(--gold);line-height:1;margin-top:1px}
+.sb-detail{font-size:.6rem;color:rgba(255,255,255,.6);margin-top:2px;line-height:1.4}
+.sb-vs{font-family:var(--cond);font-size:1rem;font-weight:800;color:rgba(255,255,255,.4);padding:0 2px}
+.sb-label{font-family:var(--cond);font-size:.62rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.06em;color:var(--gold-soft);text-align:center;margin-bottom:4px}
+.sb-wrap{display:flex;flex-direction:column}
+@media(max-width:640px){.fav{grid-template-columns:1fr}.scoreboard{justify-content:center}}
+
+/* ===== WRAP / TABS ===== */
+.wrap{max-width:1080px;margin:0 auto;padding:18px 18px 30px}
+.tabs{display:flex;gap:5px;background:rgba(7,46,24,.55);backdrop-filter:blur(8px);
+  padding:5px;border-radius:14px;margin:18px 0 16px;position:sticky;top:8px;z-index:30;
+  box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.12)}
+.tab{flex:1;border:none;background:transparent;color:rgba(255,255,255,.7);
+  font-family:var(--cond);font-weight:700;font-size:1rem;letter-spacing:.04em;text-transform:uppercase;
+  padding:11px 6px;border-radius:10px;cursor:pointer;transition:.18s}
+.tab.active{background:var(--card);color:var(--grass-dk);box-shadow:var(--shadow-sm)}
+
+/* ===== FILTERS ===== */
+.filters{display:flex;flex-direction:column;gap:9px;margin-bottom:16px}
+.filter-row{display:flex;gap:7px;overflow-x:auto;padding-bottom:3px;scrollbar-width:none}
+.filter-row::-webkit-scrollbar{display:none}
+.flabel{font-family:var(--cond);font-size:.82rem;color:#fff;font-weight:700;text-transform:uppercase;
+  letter-spacing:.05em;min-width:62px;display:flex;align-items:center;opacity:.85}
+.pill{flex:0 0 auto;border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);
+  color:#fff;padding:7px 14px;border-radius:999px;font-size:.82rem;font-weight:700;cursor:pointer;
+  transition:.15s;white-space:nowrap;font-family:inherit;backdrop-filter:blur(4px)}
+.pill.active{background:var(--gold);border-color:var(--gold);color:var(--grass-dk)}
+.search{width:100%;border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.95);
+  border-radius:12px;padding:12px 14px;font-size:.92rem;font-family:inherit;color:var(--ink)}
+.search:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(244,196,48,.25)}
+.search::placeholder{color:var(--muted)}
+
+/* ===== MATCH CARDS ===== */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.match{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:0 0 13px;cursor:pointer;transition:.2s;overflow:hidden;border:1px solid rgba(7,46,24,.04)}
+.match:hover{transform:translateY(-3px);box-shadow:0 4px 10px rgba(7,46,24,.14),0 22px 44px rgba(7,46,24,.20)}
+.m-top{display:flex;justify-content:space-between;align-items:center;padding:9px 14px;
+  background:linear-gradient(90deg,#0a3d20,#11512c);color:#fff;font-size:.72rem;font-weight:600}
+.m-meta{display:flex;align-items:center;gap:7px;letter-spacing:.01em}
+.jchip{background:var(--gold);color:var(--grass-dk);padding:2px 7px;border-radius:5px;
+  font-family:var(--cond);font-weight:800;font-size:.72rem;letter-spacing:.03em}
+.inaug{background:#fff;color:var(--grass-dk);padding:2px 7px;border-radius:5px;font-weight:800;font-size:.62rem;letter-spacing:.03em}
+.conf{padding:3px 9px;border-radius:999px;font-size:.64rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase}
+.conf.ALTO{background:#dcfce7;color:#15803d} .conf.MEDIO{background:#fef3c7;color:#b45309} .conf.BAJO{background:#fee2e2;color:#b91c1c}
+.conf.star{box-shadow:inset 0 0 0 1.5px currentColor}
+.m-teams{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;padding:16px 14px 4px}
+.team{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.team img{width:54px;height:38px;object-fit:cover;border-radius:7px;box-shadow:0 2px 6px rgba(0,0,0,.22);
+  border:2px solid #fff;outline:1px solid var(--line)}
+.team .tn{font-family:var(--cond);font-size:1rem;font-weight:700;line-height:1.05;letter-spacing:.01em}
+.score{font-family:var(--cond);font-size:2.1rem;font-weight:900;letter-spacing:.02em;padding:0 4px;
+  color:var(--grass-dk);white-space:nowrap}
+.score small{font-family:"Inter";font-size:.62rem;color:var(--muted);font-weight:700;display:block;
+  text-align:center;letter-spacing:.04em;text-transform:uppercase;margin-top:1px}
+.bar{display:flex;height:8px;border-radius:5px;overflow:hidden;margin:14px 14px 0;background:var(--line)}
+.bar i{display:block;height:100%}
+.bar .b1{background:var(--green)} .bar .bx{background:var(--slate)} .bar .b2{background:var(--blue)}
+.plabels{display:flex;justify-content:space-between;font-size:.68rem;color:var(--muted);
+  margin:7px 14px 0;font-weight:600}
+.plabels b{color:var(--ink);font-family:var(--cond);font-size:.82rem}
+.xg{font-size:.7rem;color:var(--muted);margin:11px 14px 0;font-weight:600;display:none}
+.facts{margin:11px 14px 0;padding-top:10px;border-top:1px dashed var(--line);display:none;flex-wrap:wrap;gap:6px}
+.match.open .facts,.match.open .xg{display:flex}
+.match.open .xg{display:block}
+.fact{background:#eef5f0;color:#3c6b4f;font-size:.69rem;padding:3px 9px;border-radius:7px;font-weight:600}
+.hint{font-size:.6rem;color:var(--slate);text-align:center;margin-top:9px;letter-spacing:.03em;text-transform:uppercase;font-weight:700}
+.match.open .hint{display:none}
+.compare{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin:10px 14px 0}
+.cmp{background:#f8fafc;border-radius:8px;padding:7px 8px;text-align:center;border:1px solid var(--line)}
+.cmp.real{background:linear-gradient(135deg,#0a3d20,#11512c);border-color:transparent}
+.cmp .cmp-who{font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:3px}
+.cmp.real .cmp-who{color:rgba(255,255,255,.7)}
+.cmp .cmp-sc{font-family:var(--cond);font-size:1.2rem;font-weight:900;color:var(--grass-dk);line-height:1}
+.cmp.real .cmp-sc{color:var(--gold)}
+.cmp .cmp-sc.pending{font-size:.72rem;color:var(--slate);font-family:"Inter";font-weight:600;line-height:1.6}
+.cmp .cmp-badge{font-size:.68rem;margin-top:2px;display:block}
+.cmp.hit-bg{background:#dcfce7;border-color:#bbf7d0}
+.cmp.miss-bg{background:#fee2e2;border-color:#fecaca}
+
+/* ===== GROUP TABLES ===== */
+.groups{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px}
+.gcard{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.gh{background:repeating-linear-gradient(90deg,#0a3d20 0 22px,#0c4423 22px 44px);
+  color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;
+  border-bottom:3px solid var(--gold)}
+.gh .gl{font-family:var(--cond);font-weight:900;font-size:1.25rem;letter-spacing:.04em;text-transform:uppercase}
+.gh .gt{font-size:.66rem;opacity:.8;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.grow{display:grid;grid-template-columns:22px 32px 1fr auto;align-items:center;gap:10px;
+  padding:11px 14px;border-bottom:1px solid var(--line);font-size:.9rem}
+.grow:last-child{border-bottom:none}
+.grow .gp{font-family:var(--cond);font-weight:800;color:var(--muted);font-size:.95rem;text-align:center}
+.grow img{width:30px;height:21px;object-fit:cover;border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.18)}
+.grow .ge{font-weight:700;display:flex;flex-direction:column;justify-content:center;line-height:1.18}
+.grow .gprob{font-size:.62rem;color:var(--muted);font-weight:600}
+.grow.directo .gprob{color:var(--green)} .grow.tercero_pasa .gprob{color:var(--amber)}
+.grow .gpts{font-family:var(--cond);font-weight:800;font-size:1.05rem;color:var(--grass-dk);font-variant-numeric:tabular-nums}
+.grow .gpts small{color:var(--muted);font-weight:600;font-size:.62rem;font-family:"Inter"}
+.grow.directo{background:linear-gradient(90deg,rgba(22,163,74,.12),transparent)}
+.grow.directo .gp{color:var(--green)}
+.grow.tercero_pasa{background:linear-gradient(90deg,rgba(245,158,11,.14),transparent)}
+.grow.tercero_pasa .gp{color:var(--amber)}
+.tag{font-family:var(--cond);font-size:.62rem;font-weight:800;padding:1px 6px;border-radius:5px;
+  margin-left:7px;letter-spacing:.04em}
+.tag.d{background:#dcfce7;color:#15803d} .tag.t{background:#fef3c7;color:#b45309}
+
+/* ===== LEGEND ===== */
+.legend{display:flex;flex-wrap:wrap;gap:14px;background:var(--card);border-radius:12px;
+  padding:12px 16px;box-shadow:var(--shadow);margin-bottom:16px;font-size:.76rem;color:var(--muted)}
+.legend span{display:flex;align-items:center;gap:6px;font-weight:600}
+.sw{width:13px;height:13px;border-radius:4px}
+
+/* ===== PASE ===== */
+.section-title{font-family:var(--cond);font-size:1.3rem;font-weight:800;text-transform:uppercase;
+  letter-spacing:.04em;color:#fff;margin:6px 0 13px;display:flex;align-items:center;gap:9px;
+  text-shadow:0 1px 6px rgba(0,0,0,.3)}
+.qgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:10px;margin-bottom:26px}
+.qcard{background:var(--card);border-radius:12px;box-shadow:var(--shadow);padding:12px;
+  display:flex;align-items:center;gap:10px;border-left:4px solid var(--green)}
+.qcard.amber{border-left-color:var(--amber)}
+.qcard.out{border-left-color:var(--line);opacity:.45}
+.qcard img{width:34px;height:24px;object-fit:cover;border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.18)}
+.qcard .qn{font-family:var(--cond);font-weight:700;font-size:.96rem;line-height:1.05}
+.qcard .qg{font-size:.66rem;color:var(--muted);font-weight:600}
+
+.foot{max-width:1080px;margin:0 auto;padding:22px 18px 46px;color:rgba(255,255,255,.7);
+  font-size:.73rem;text-align:center;line-height:1.65}
+.foot b{color:var(--gold-soft)}
+.hidden{display:none!important}
+.empty{text-align:center;color:rgba(255,255,255,.8);padding:40px;font-size:.95rem;font-weight:600}
+
+@media(max-width:640px){
+  h1{font-size:2rem} .emblem{width:80px;height:80px}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .grid,.groups,.qgrid{grid-template-columns:1fr}
+  .score{font-size:1.85rem} .fav .fp{font-size:.66rem}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <!-- líneas del campo -->
+  <svg class="pitch" viewBox="0 0 1000 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g fill="none" stroke="rgba(255,255,255,.85)" stroke-width="2.5">
+      <rect x="14" y="14" width="972" height="332" rx="2"/>
+      <line x1="500" y1="14" x2="500" y2="346"/>
+      <circle cx="500" cy="180" r="62"/>
+      <circle cx="500" cy="180" r="3.5" fill="rgba(255,255,255,.9)" stroke="none"/>
+      <rect x="14" y="96" width="96" height="168"/>
+      <rect x="14" y="138" width="38" height="84"/>
+      <rect x="890" y="96" width="96" height="168"/>
+      <rect x="948" y="138" width="38" height="84"/>
+      <path d="M110 138 A48 48 0 0 1 110 222"/>
+      <path d="M890 138 A48 48 0 0 0 890 222"/>
+    </g>
+  </svg>
+
+  <div class="hero-in">
+    <!-- EMBLEMA TROFEO (diseño propio) -->
+    <svg class="emblem" viewBox="0 0 100 100" aria-label="Emblema del torneo">
+      <defs>
+        <linearGradient id="gGold" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#fde68a"/><stop offset=".5" stop-color="#f4c430"/><stop offset="1" stop-color="#b8860b"/>
+        </linearGradient>
+        <radialGradient id="gBg" cx=".5" cy=".4" r=".7">
+          <stop offset="0" stop-color="#11512c"/><stop offset="1" stop-color="#072e18"/>
+        </radialGradient>
+      </defs>
+      <circle cx="50" cy="50" r="47" fill="url(#gBg)" stroke="url(#gGold)" stroke-width="3.5"/>
+      <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(244,196,48,.35)" stroke-width="1"/>
+      <!-- copa -->
+      <g fill="url(#gGold)">
+        <path d="M34 24 h32 v9 a16 16 0 0 1 -32 0 z"/>
+        <path d="M34 26 h-7 a7 8 0 0 0 9 13 l-2 -5 a4 4 0 0 1 -4 -6 h4 z"/>
+        <path d="M66 26 h7 a7 8 0 0 1 -9 13 l2 -5 a4 4 0 0 0 4 -6 h-4 z"/>
+        <rect x="47" y="48" width="6" height="10"/>
+        <path d="M38 58 h24 l-3 7 h-18 z"/>
+        <rect x="36" y="65" width="28" height="5" rx="2"/>
+      </g>
+      <!-- balón mini -->
+      <circle cx="50" cy="34" r="5" fill="#0a3d20" stroke="#fde68a" stroke-width="1"/>
+      <text x="50" y="84" text-anchor="middle" font-family="Barlow Condensed,sans-serif"
+        font-size="13" font-weight="900" fill="url(#gGold)" letter-spacing="1">2026</text>
+    </svg>
+
+    <div class="kicker">Canadá · México · EE.&nbsp;UU.</div>
+    <h1>Mundial <span class="yr">2026</span></h1>
+    <div class="tagline">Pronósticos de la fase de grupos · modelo cuantitativo</div>
+
+    <div class="host" id="host"></div>
+    <div class="meta-strip" id="metastrip"></div>
+  </div>
+</header>
+
+<div class="kpis" id="kpis"></div>
+<div class="fav">
+  <div class="fav-in" id="favbox"></div>
+  <div class="scoreboard" id="scoreboard"></div>
+</div>
+
+<div class="wrap">
+  <div class="tabs">
+    <button class="tab active" data-view="partidos">⚽ Partidos</button>
+    <button class="tab" data-view="grupos">📊 Grupos</button>
+    <button class="tab" data-view="pase">🏆 Octavos</button>
+  </div>
+
+  <section id="view-partidos">
+    <div class="filters">
+      <input class="search" id="search" placeholder="🔎 Busca tu selección (México, España...)">
+      <div class="filter-row" id="fjornada">
+        <span class="flabel">Jornada</span>
+        <button class="pill active" data-j="all">Todas</button>
+        <button class="pill" data-j="1">Jornada 1</button>
+        <button class="pill" data-j="2">Jornada 2</button>
+        <button class="pill" data-j="3">Jornada 3</button>
+      </div>
+      <div class="filter-row" id="fgrupo">
+        <span class="flabel">Grupo</span>
+        <button class="pill active" data-g="all">Todos</button>
+      </div>
+    </div>
+    <div class="grid" id="matches"></div>
+    <div class="empty hidden" id="noMatch">⚠️ No hay partidos con esos filtros.</div>
+  </section>
+
+  <section id="view-grupos" class="hidden">
+    <div class="legend">
+      <span><i class="sw" style="background:var(--green)"></i> 1.º–2.º clasifican directos</span>
+      <span><i class="sw" style="background:var(--amber)"></i> 3.º entre los 8 mejores → octavos</span>
+      <span><i class="sw" style="background:var(--slate)"></i> eliminado</span>
+    </div>
+    <div class="groups" id="groups"></div>
+  </section>
+
+  <section id="view-pase" class="hidden">
+    <div class="section-title">✅ Clasificados directos</div>
+    <div class="qgrid" id="qdirect"></div>
+    <div class="section-title">🟡 Mejores terceros · pasan 8 de 12</div>
+    <div class="qgrid" id="qthird"></div>
+  </section>
+</div>
+
+<div class="foot">
+  <b>Mundial 2026</b> · 48 selecciones · 104 partidos · 16 sedes en 3 países.<br>
+  Estimaciones de un modelo Poisson bivariante (v5: Poisson bivariante, Dixon-Coles, Monte Carlo con desempates): no son certezas, el fútbol tiene azar.<br>
+  Hecho para la porra · banderas © flagcdn.com
+</div>
+
+<script>
+const DATA = {"matches": [{"id": 1, "j": 1, "fecha": "11 jun", "sede": "Ciudad de México", "hora": 13, "local": "México", "localCode": "mx", "visit": "Sudáfrica", "visitCode": "za", "grupo": "A", "marcador": "2-0", "p1": 68, "px": 19, "p2": 12, "xgL": 2.099, "xgV": 0.758, "conf": "MEDIO", "factores": "Local México | Altitud 2240m", "resultado": "2-0", "acierto": true, "amalia": "2-0", "amalia_acierto": true}, {"id": 2, "j": 1, "fecha": "11 jun", "sede": "Guadalajara", "hora": 20, "local": "Corea del Sur", "localCode": "kr", "visit": "Chequia", "visitCode": "cz", "grupo": "A", "marcador": "1-0", "p1": 48, "px": 27, "p2": 25, "xgL": 1.441, "xgV": 0.947, "conf": "BAJO", "factores": "Altitud 1566m", "resultado": "2-1", "acierto": true, "amalia": "1-0", "amalia_acierto": true}, {"id": 3, "j": 1, "fecha": "12 jun", "sede": "Toronto", "hora": 15, "local": "Canadá", "localCode": "ca", "visit": "Bosnia", "visitCode": "ba", "grupo": "B", "marcador": "1-1", "p1": 36, "px": 27, "p2": 37, "xgL": 1.269, "xgV": 1.287, "conf": "BAJO", "factores": "Local Canadá", "amalia": "1-1", "resultado": "1-1", "acierto": true, "amalia_acierto": true}, {"id": 4, "j": 1, "fecha": "12 jun", "sede": "Los Ángeles", "hora": 18, "local": "EE. UU.", "localCode": "us", "visit": "Paraguay", "visitCode": "py", "grupo": "D", "marcador": "2-0", "p1": 69, "px": 19, "p2": 12, "xgL": 2.118, "xgV": 0.754, "conf": "MEDIO", "factores": "Local EE. UU.", "amalia": "2-1", "resultado": "4-1", "acierto": true, "amalia_acierto": true}, {"id": 5, "j": 1, "fecha": "13 jun", "sede": "Boston", "hora": 21, "local": "Haití", "localCode": "ht", "visit": "Escocia", "visitCode": "gb-sct", "grupo": "C", "marcador": "0-1", "p1": 16, "px": 23, "p2": 61, "xgL": 0.787, "xgV": 1.78, "conf": "MEDIO", "factores": "Equilibrado", "amalia": "0-1", "resultado": "0-1", "acierto": true, "amalia_acierto": true}, {"id": 6, "j": 1, "fecha": "13 jun", "sede": "Vancouver", "hora": 21, "local": "Australia", "localCode": "au", "visit": "Turquía", "visitCode": "tr", "grupo": "D", "marcador": "0-1", "p1": 23, "px": 25, "p2": 52, "xgL": 0.981, "xgV": 1.598, "conf": "BAJO", "factores": "Equilibrado", "amalia": "1-2", "resultado": "2-0", "acierto": false, "amalia_acierto": false}, {"id": 7, "j": 1, "fecha": "13 jun", "sede": "Nueva York", "hora": 18, "local": "Brasil", "localCode": "br", "visit": "Marruecos", "visitCode": "ma", "grupo": "C", "marcador": "0-1", "p1": 23, "px": 26, "p2": 50, "xgL": 0.915, "xgV": 1.472, "conf": "BAJO", "factores": "Equilibrado", "amalia": "1-1", "resultado": "1-1", "acierto": false, "amalia_acierto": true}, {"id": 8, "j": 1, "fecha": "13 jun", "sede": "San Francisco", "hora": 12, "local": "Catar", "localCode": "qa", "visit": "Suiza", "visitCode": "ch", "grupo": "B", "marcador": "0-1", "p1": 14, "px": 23, "p2": 63, "xgL": 0.702, "xgV": 1.779, "conf": "MEDIO", "factores": "Equilibrado", "amalia": "0-2", "resultado": "1-1", "acierto": false, "amalia_acierto": false}, {"id": 9, "j": 1, "fecha": "14 jun", "sede": "Filadelfia", "hora": 19, "local": "Costa de Marfil", "localCode": "ci", "visit": "Ecuador", "visitCode": "ec", "grupo": "E", "marcador": "1-1", "p1": 32, "px": 27, "p2": 41, "xgL": 1.135, "xgV": 1.338, "conf": "BAJO", "factores": "Equilibrado", "amalia": "1-1"}, {"id": 10, "j": 1, "fecha": "14 jun", "sede": "Houston", "hora": 12, "local": "Alemania", "localCode": "de", "visit": "Curazao", "visitCode": "cw", "grupo": "E", "marcador": "4-0", "p1": 92, "px": 3, "p2": 1, "xgL": 4.541, "xgV": 0.438, "conf": "ALTO", "factores": "Elo gap 335→Alemania | Calor mitigado (techo) | Debut J1 Curazao", "amalia": "4-0"}, {"id": 11, "j": 1, "fecha": "14 jun", "sede": "Dallas", "hora": 15, "local": "Países Bajos", "localCode": "nl", "visit": "Japón", "visitCode": "jp", "grupo": "F", "marcador": "1-1", "p1": 48, "px": 26, "p2": 26, "xgL": 1.506, "xgV": 1.031, "conf": "BAJO", "factores": "Calor mitigado (techo)", "amalia": "1-1"}, {"id": 12, "j": 1, "fecha": "14 jun", "sede": "Monterrey", "hora": 20, "local": "Suecia", "localCode": "se", "visit": "Túnez", "visitCode": "tn", "grupo": "F", "marcador": "1-0", "p1": 46, "px": 28, "p2": 26, "xgL": 1.339, "xgV": 0.935, "conf": "BAJO", "factores": "WBGT calor", "amalia": "1-1"}, {"id": 13, "j": 1, "fecha": "15 jun", "sede": "Miami", "hora": 18, "local": "Arabia Saudí", "localCode": "sa", "visit": "Uruguay", "visitCode": "uy", "grupo": "H", "marcador": "0-1", "p1": 12, "px": 22, "p2": 66, "xgL": 0.626, "xgV": 1.817, "conf": "MEDIO", "factores": "Elo gap 162→Uruguay | WBGT calor", "amalia": "1-2"}, {"id": 14, "j": 1, "fecha": "15 jun", "sede": "Atlanta", "hora": 12, "local": "España", "localCode": "es", "visit": "Cabo Verde", "visitCode": "cv", "grupo": "H", "marcador": "5-0", "p1": 89, "px": 1, "p2": 0, "xgL": 5.372, "xgV": 0.377, "conf": "ALTO", "factores": "Elo gap 388→España | Calor mitigado (techo) | Debut J1 Cabo Verde", "amalia": "5-0"}, {"id": 15, "j": 1, "fecha": "15 jun", "sede": "Los Ángeles", "hora": 18, "local": "Irán", "localCode": "ir", "visit": "Nueva Zelanda", "visitCode": "nz", "grupo": "G", "marcador": "2-0", "p1": 82, "px": 13, "p2": 5, "xgL": 2.617, "xgV": 0.52, "conf": "ALTO", "factores": "Elo gap 269→Irán", "amalia": "3-1"}, {"id": 16, "j": 1, "fecha": "15 jun", "sede": "Seattle", "hora": 12, "local": "Bélgica", "localCode": "be", "visit": "Egipto", "visitCode": "eg", "grupo": "G", "marcador": "2-0", "p1": 76, "px": 16, "p2": 8, "xgL": 2.273, "xgV": 0.58, "conf": "BAJO*", "factores": "Elo gap 183→Bélgica | Dep.★ Salah", "amalia": "2-0"}, {"id": 17, "j": 1, "fecha": "16 jun", "sede": "Nueva York", "hora": 15, "local": "Francia", "localCode": "fr", "visit": "Senegal", "visitCode": "sn", "grupo": "I", "marcador": "2-0", "p1": 76, "px": 16, "p2": 8, "xgL": 2.397, "xgV": 0.641, "conf": "BAJO*", "factores": "Elo gap 179→Francia | Dep.★ Mané", "amalia": "2-0"}, {"id": 18, "j": 1, "fecha": "16 jun", "sede": "Boston", "hora": 18, "local": "Irak", "localCode": "iq", "visit": "Noruega", "visitCode": "no", "grupo": "I", "marcador": "0-2", "p1": 12, "px": 19, "p2": 69, "xgL": 0.783, "xgV": 2.154, "conf": "BAJO*", "factores": "Dep.★ Haaland", "amalia": "0-2"}, {"id": 19, "j": 1, "fecha": "16 jun", "sede": "Kansas City", "hora": 20, "local": "Argentina", "localCode": "ar", "visit": "Argelia", "visitCode": "dz", "grupo": "J", "marcador": "2-0", "p1": 85, "px": 11, "p2": 4, "xgL": 2.859, "xgV": 0.521, "conf": "MEDIO*", "factores": "Elo gap 246→Argentina | WBGT calor | Dep.★ Messi", "amalia": "2-0"}, {"id": 20, "j": 1, "fecha": "16 jun", "sede": "San Francisco", "hora": 21, "local": "Austria", "localCode": "at", "visit": "Jordania", "visitCode": "jo", "grupo": "J", "marcador": "1-0", "p1": 67, "px": 20, "p2": 12, "xgL": 1.965, "xgV": 0.695, "conf": "MEDIO", "factores": "Debut J1 Jordania", "amalia": "2-0"}, {"id": 21, "j": 1, "fecha": "17 jun", "sede": "Toronto", "hora": 19, "local": "Ghana", "localCode": "gh", "visit": "Panamá", "visitCode": "pa", "grupo": "L", "marcador": "1-1", "p1": 35, "px": 28, "p2": 37, "xgL": 1.176, "xgV": 1.207, "conf": "BAJO", "factores": "Equilibrado", "amalia": "1-1"}, {"id": 22, "j": 1, "fecha": "17 jun", "sede": "Dallas", "hora": 15, "local": "Inglaterra", "localCode": "gb-eng", "visit": "Croacia", "visitCode": "hr", "grupo": "L", "marcador": "1-0", "p1": 65, "px": 21, "p2": 14, "xgL": 1.889, "xgV": 0.723, "conf": "MEDIO", "factores": "Calor mitigado (techo)", "amalia": "2-1"}, {"id": 23, "j": 1, "fecha": "17 jun", "sede": "Houston", "hora": 12, "local": "Portugal", "localCode": "pt", "visit": "RD Congo", "visitCode": "cd", "grupo": "K", "marcador": "3-0", "p1": 92, "px": 5, "p2": 2, "xgL": 3.876, "xgV": 0.468, "conf": "ALTO", "factores": "Elo gap 301→Portugal | Calor mitigado (techo) | Dep.★ Ronaldo", "amalia": "3-0"}, {"id": 24, "j": 1, "fecha": "17 jun", "sede": "Ciudad de México", "hora": 20, "local": "Uzbekistán", "localCode": "uz", "visit": "Colombia", "visitCode": "co", "grupo": "K", "marcador": "0-2", "p1": 5, "px": 12, "p2": 84, "xgL": 0.514, "xgV": 2.738, "conf": "ALTO", "factores": "Elo gap 233→Colombia | Altitud 2240m | Debut J1 Uzbekistán | Dep.★ L.Díaz", "amalia": "0-2"}, {"id": 25, "j": 2, "fecha": "18 jun", "sede": "Atlanta", "hora": 12, "local": "Chequia", "localCode": "cz", "visit": "Sudáfrica", "visitCode": "za", "grupo": "A", "marcador": "1-1", "p1": 39, "px": 28, "p2": 32, "xgL": 1.211, "xgV": 1.075, "conf": "BAJO", "factores": "Calor mitigado (techo) | Viaje Chequia 2374km | Viaje Sudáfrica 2171km", "amalia": "1-1"}, {"id": 26, "j": 2, "fecha": "18 jun", "sede": "Los Ángeles", "hora": 12, "local": "Suiza", "localCode": "ch", "visit": "Bosnia", "visitCode": "ba", "grupo": "B", "marcador": "1-0", "p1": 51, "px": 26, "p2": 23, "xgL": 1.488, "xgV": 0.896, "conf": "BAJO", "factores": "Viaje Bosnia 3504km", "amalia": "1-0"}, {"id": 27, "j": 2, "fecha": "18 jun", "sede": "Vancouver", "hora": 18, "local": "Canadá", "localCode": "ca", "visit": "Catar", "visitCode": "qa", "grupo": "B", "marcador": "1-0", "p1": 49, "px": 26, "p2": 25, "xgL": 1.483, "xgV": 0.988, "conf": "BAJO", "factores": "Local Canadá | Viaje Canadá 3357km", "amalia": "1-0"}, {"id": 28, "j": 2, "fecha": "18 jun", "sede": "Guadalajara", "hora": 19, "local": "México", "localCode": "mx", "visit": "Corea del Sur", "visitCode": "kr", "grupo": "A", "marcador": "1-0", "p1": 51, "px": 25, "p2": 24, "xgL": 1.565, "xgV": 0.984, "conf": "BAJO", "factores": "Local México | Altitud 1566m", "amalia": "1-1"}, {"id": 29, "j": 2, "fecha": "19 jun", "sede": "Filadelfia", "hora": 21, "local": "Brasil", "localCode": "br", "visit": "Haití", "visitCode": "ht", "grupo": "C", "marcador": "2-0", "p1": 86, "px": 10, "p2": 4, "xgL": 2.941, "xgV": 0.518, "conf": "ALTO", "factores": "Elo gap 252→Brasil", "amalia": "2-0"}, {"id": 30, "j": 2, "fecha": "19 jun", "sede": "Boston", "hora": 18, "local": "Escocia", "localCode": "gb-sct", "visit": "Marruecos", "visitCode": "ma", "grupo": "C", "marcador": "0-2", "p1": 6, "px": 13, "p2": 81, "xgL": 0.557, "xgV": 2.606, "conf": "ALTO", "factores": "Elo gap 216→Marruecos", "amalia": "0-2"}, {"id": 31, "j": 2, "fecha": "19 jun", "sede": "San Francisco", "hora": 20, "local": "Turquía", "localCode": "tr", "visit": "Paraguay", "visitCode": "py", "grupo": "D", "marcador": "1-0", "p1": 59, "px": 23, "p2": 17, "xgL": 1.732, "xgV": 0.811, "conf": "MEDIO", "factores": "Equilibrado", "amalia": "1-0"}, {"id": 32, "j": 2, "fecha": "19 jun", "sede": "Seattle", "hora": 12, "local": "EE. UU.", "localCode": "us", "visit": "Australia", "visitCode": "au", "grupo": "D", "marcador": "1-0", "p1": 61, "px": 22, "p2": 17, "xgL": 1.934, "xgV": 0.909, "conf": "MEDIO", "factores": "Local EE. UU. | Viaje EE. UU. 1553km", "amalia": "1-0"}, {"id": 33, "j": 2, "fecha": "20 jun", "sede": "Toronto", "hora": 16, "local": "Alemania", "localCode": "de", "visit": "Costa de Marfil", "visitCode": "ci", "grupo": "E", "marcador": "2-0", "p1": 71, "px": 18, "p2": 12, "xgL": 2.28, "xgV": 0.797, "conf": "MEDIO", "factores": "Elo gap 157→Alemania | Viaje Alemania 2100km", "amalia": "2-0"}, {"id": 34, "j": 2, "fecha": "20 jun", "sede": "Kansas City", "hora": 19, "local": "Ecuador", "localCode": "ec", "visit": "Curazao", "visitCode": "cw", "grupo": "E", "marcador": "2-0", "p1": 78, "px": 15, "p2": 7, "xgL": 2.448, "xgV": 0.61, "conf": "ALTO", "factores": "Elo gap 220→Ecuador | WBGT calor | Debut J2 Curazao | Viaje Ecuador 1657km", "amalia": "2-0"}, {"id": 35, "j": 2, "fecha": "20 jun", "sede": "Houston", "hora": 12, "local": "Países Bajos", "localCode": "nl", "visit": "Suecia", "visitCode": "se", "grupo": "F", "marcador": "2-0", "p1": 69, "px": 19, "p2": 12, "xgL": 2.148, "xgV": 0.787, "conf": "MEDIO", "factores": "Elo gap 152→Países Bajos | Calor mitigado (techo)", "amalia": "2-0"}, {"id": 36, "j": 2, "fecha": "20 jun", "sede": "Monterrey", "hora": 22, "local": "Túnez", "localCode": "tn", "visit": "Japón", "visitCode": "jp", "grupo": "F", "marcador": "0-1", "p1": 12, "px": 21, "p2": 67, "xgL": 0.678, "xgV": 1.913, "conf": "MEDIO", "factores": "Elo gap 166→Japón | WBGT calor", "amalia": "0-1"}, {"id": 37, "j": 2, "fecha": "21 jun", "sede": "Miami", "hora": 18, "local": "Uruguay", "localCode": "uy", "visit": "Cabo Verde", "visitCode": "cv", "grupo": "H", "marcador": "2-0", "p1": 73, "px": 18, "p2": 9, "xgL": 2.142, "xgV": 0.597, "conf": "ALTO", "factores": "Elo gap 204→Uruguay | WBGT calor | Debut J2 Cabo Verde", "amalia": "2-0"}, {"id": 38, "j": 2, "fecha": "21 jun", "sede": "Atlanta", "hora": 12, "local": "España", "localCode": "es", "visit": "Arabia Saudí", "visitCode": "sa", "grupo": "H", "marcador": "4-0", "p1": 92, "px": 3, "p2": 1, "xgL": 4.444, "xgV": 0.398, "conf": "ALTO", "factores": "Elo gap 347→España | Calor mitigado (techo)", "amalia": "3-0"}, {"id": 39, "j": 2, "fecha": "21 jun", "sede": "Los Ángeles", "hora": 12, "local": "Bélgica", "localCode": "be", "visit": "Irán", "visitCode": "ir", "grupo": "G", "marcador": "1-0", "p1": 66, "px": 22, "p2": 12, "xgL": 1.831, "xgV": 0.645, "conf": "MEDIO", "factores": "Viaje Bélgica 1553km", "amalia": "1-0"}, {"id": 40, "j": 2, "fecha": "21 jun", "sede": "Vancouver", "hora": 18, "local": "Nueva Zelanda", "localCode": "nz", "visit": "Egipto", "visitCode": "eg", "grupo": "G", "marcador": "0-2", "p1": 7, "px": 15, "p2": 77, "xgL": 0.589, "xgV": 2.39, "conf": "MEDIO*", "factores": "Elo gap 224→Egipto | Viaje Nueva Zelanda 1749km | Dep.★ Salah", "amalia": "0-2"}, {"id": 41, "j": 2, "fecha": "22 jun", "sede": "Nueva York", "hora": 20, "local": "Noruega", "localCode": "no", "visit": "Senegal", "visitCode": "sn", "grupo": "I", "marcador": "1-1", "p1": 30, "px": 26, "p2": 44, "xgL": 1.169, "xgV": 1.484, "conf": "BAJO", "factores": "Dep.★ Haaland | Dep.★ Mané", "amalia": "1-1"}, {"id": 42, "j": 2, "fecha": "22 jun", "sede": "Filadelfia", "hora": 17, "local": "Francia", "localCode": "fr", "visit": "Irak", "visitCode": "iq", "grupo": "I", "marcador": "4-0", "p1": 91, "px": 2, "p2": 0, "xgL": 4.863, "xgV": 0.382, "conf": "ALTO", "factores": "Elo gap 351→Francia", "amalia": "4-0"}, {"id": 43, "j": 2, "fecha": "22 jun", "sede": "Dallas", "hora": 20, "local": "Argentina", "localCode": "ar", "visit": "Austria", "visitCode": "at", "grupo": "J", "marcador": "2-0", "p1": 81, "px": 13, "p2": 6, "xgL": 2.671, "xgV": 0.592, "conf": "MEDIO*", "factores": "Elo gap 215→Argentina | Calor mitigado (techo) | Viaje Austria 2315km | Dep.★ Messi", "amalia": "2-1"}, {"id": 44, "j": 2, "fecha": "22 jun", "sede": "San Francisco", "hora": 20, "local": "Jordania", "localCode": "jo", "visit": "Argelia", "visitCode": "dz", "grupo": "J", "marcador": "0-1", "p1": 18, "px": 24, "p2": 58, "xgL": 0.782, "xgV": 1.644, "conf": "MEDIO", "factores": "Debut J2 Jordania | Viaje Argelia 2399km", "amalia": "0-1"}, {"id": 45, "j": 2, "fecha": "23 jun", "sede": "Boston", "hora": 16, "local": "Inglaterra", "localCode": "gb-eng", "visit": "Ghana", "visitCode": "gh", "grupo": "L", "marcador": "3-0", "p1": 90, "px": 7, "p2": 3, "xgL": 3.504, "xgV": 0.522, "conf": "ALTO", "factores": "Elo gap 289→Inglaterra | Viaje Inglaterra 2494km", "amalia": "3-0"}, {"id": 46, "j": 2, "fecha": "23 jun", "sede": "Toronto", "hora": 19, "local": "Panamá", "localCode": "pa", "visit": "Croacia", "visitCode": "hr", "grupo": "L", "marcador": "0-1", "p1": 13, "px": 22, "p2": 65, "xgL": 0.685, "xgV": 1.854, "conf": "MEDIO", "factores": "Viaje Croacia 1955km", "amalia": "0-1"}, {"id": 47, "j": 2, "fecha": "23 jun", "sede": "Houston", "hora": 12, "local": "Portugal", "localCode": "pt", "visit": "Uzbekistán", "visitCode": "uz", "grupo": "K", "marcador": "4-0", "p1": 92, "px": 4, "p2": 1, "xgL": 4.04, "xgV": 0.436, "conf": "ALTO", "factores": "Elo gap 323→Portugal | Calor mitigado (techo) | Debut J2 Uzbekistán | Rotación Portugal J3 | Dep.★ Ronaldo", "amalia": "4-0"}, {"id": 48, "j": 2, "fecha": "23 jun", "sede": "Guadalajara", "hora": 20, "local": "Colombia", "localCode": "co", "visit": "RD Congo", "visitCode": "cd", "grupo": "K", "marcador": "2-0", "p1": 79, "px": 14, "p2": 7, "xgL": 2.565, "xgV": 0.629, "conf": "ALTO", "factores": "Elo gap 212→Colombia | Altitud 1566m | Dep.★ L.Díaz", "amalia": "2-1"}, {"id": 49, "j": 3, "fecha": "24 jun", "sede": "Miami", "hora": 18, "local": "Escocia", "localCode": "gb-sct", "visit": "Brasil", "visitCode": "br", "grupo": "C", "marcador": "0-1", "p1": 13, "px": 21, "p2": 66, "xgL": 0.699, "xgV": 1.886, "conf": "MEDIO", "factores": "WBGT calor | Viaje Escocia 1973km | Viaje Brasil 1620km | Rotación Brasil J3", "amalia": "0-1"}, {"id": 50, "j": 3, "fecha": "24 jun", "sede": "Atlanta", "hora": 18, "local": "Marruecos", "localCode": "ma", "visit": "Haití", "visitCode": "ht", "grupo": "C", "marcador": "3-0", "p1": 92, "px": 4, "p2": 1, "xgL": 3.959, "xgV": 0.43, "conf": "ALTO", "factores": "Elo gap 332→Marruecos | Calor mitigado (techo)", "amalia": "3-0"}, {"id": 51, "j": 3, "fecha": "24 jun", "sede": "Vancouver", "hora": 12, "local": "Suiza", "localCode": "ch", "visit": "Canadá", "visitCode": "ca", "grupo": "B", "marcador": "1-0", "p1": 52, "px": 25, "p2": 23, "xgL": 1.596, "xgV": 0.984, "conf": "BAJO", "factores": "Viaje Suiza 1749km", "amalia": "1-0"}, {"id": 52, "j": 3, "fecha": "24 jun", "sede": "Seattle", "hora": 12, "local": "Bosnia", "localCode": "ba", "visit": "Catar", "visitCode": "qa", "grupo": "B", "marcador": "1-0", "p1": 49, "px": 27, "p2": 24, "xgL": 1.423, "xgV": 0.922, "conf": "BAJO", "factores": "Viaje Bosnia 1553km", "amalia": "1-1"}, {"id": 53, "j": 3, "fecha": "24 jun", "sede": "Ciudad de México", "hora": 19, "local": "Chequia", "localCode": "cz", "visit": "México", "visitCode": "mx", "grupo": "A", "marcador": "0-2", "p1": 13, "px": 20, "p2": 67, "xgL": 0.753, "xgV": 2.023, "conf": "MEDIO", "factores": "Altitud 2240m | Viaje Chequia 2171km", "amalia": "0-2"}, {"id": 54, "j": 3, "fecha": "24 jun", "sede": "Monterrey", "hora": 19, "local": "Sudáfrica", "localCode": "za", "visit": "Corea del Sur", "visitCode": "kr", "grupo": "A", "marcador": "0-1", "p1": 22, "px": 27, "p2": 51, "xgL": 0.858, "xgV": 1.446, "conf": "BAJO", "factores": "WBGT calor | Viaje Sudáfrica 1772km", "amalia": "0-1"}, {"id": 55, "j": 3, "fecha": "25 jun", "sede": "Filadelfia", "hora": 16, "local": "Curazao", "localCode": "cw", "visit": "Costa de Marfil", "visitCode": "ci", "grupo": "E", "marcador": "0-2", "p1": 10, "px": 17, "p2": 74, "xgL": 0.699, "xgV": 2.324, "conf": "MEDIO", "factores": "Elo gap 177→Costa de Marfil | Debut J3 Curazao | Viaje Curazao 1657km", "amalia": "0-2"}, {"id": 56, "j": 3, "fecha": "25 jun", "sede": "Nueva York", "hora": 16, "local": "Ecuador", "localCode": "ec", "visit": "Alemania", "visitCode": "de", "grupo": "E", "marcador": "0-2", "p1": 13, "px": 20, "p2": 67, "xgL": 0.792, "xgV": 2.092, "conf": "MEDIO", "factores": "Viaje Ecuador 1747km | Rotación Alemania J3", "amalia": "0-2"}, {"id": 57, "j": 3, "fecha": "25 jun", "sede": "Dallas", "hora": 18, "local": "Japón", "localCode": "jp", "visit": "Suecia", "visitCode": "se", "grupo": "F", "marcador": "1-0", "p1": 58, "px": 24, "p2": 19, "xgL": 1.737, "xgV": 0.871, "conf": "MEDIO", "factores": "Calor mitigado (techo)", "amalia": "1-0"}, {"id": 58, "j": 3, "fecha": "25 jun", "sede": "Kansas City", "hora": 18, "local": "Túnez", "localCode": "tn", "visit": "Países Bajos", "visitCode": "nl", "grupo": "F", "marcador": "0-2", "p1": 7, "px": 14, "p2": 79, "xgL": 0.612, "xgV": 2.538, "conf": "ALTO", "factores": "Elo gap 209→Países Bajos | WBGT calor | Viaje Túnez 1582km", "amalia": "0-2"}, {"id": 59, "j": 3, "fecha": "25 jun", "sede": "Los Ángeles", "hora": 19, "local": "Turquía", "localCode": "tr", "visit": "EE. UU.", "visitCode": "us", "grupo": "D", "marcador": "1-1", "p1": 29, "px": 26, "p2": 45, "xgL": 1.12, "xgV": 1.476, "conf": "BAJO", "factores": "Viaje EE. UU. 1553km", "amalia": "1-1"}, {"id": 60, "j": 3, "fecha": "25 jun", "sede": "San Francisco", "hora": 19, "local": "Paraguay", "localCode": "py", "visit": "Australia", "visitCode": "au", "grupo": "D", "marcador": "1-1", "p1": 28, "px": 28, "p2": 44, "xgL": 1.018, "xgV": 1.334, "conf": "BAJO", "factores": "Equilibrado", "amalia": "1-1"}, {"id": 61, "j": 3, "fecha": "26 jun", "sede": "Boston", "hora": 15, "local": "Noruega", "localCode": "no", "visit": "Francia", "visitCode": "fr", "grupo": "I", "marcador": "0-3", "p1": 5, "px": 10, "p2": 85, "xgL": 0.615, "xgV": 3.075, "conf": "MEDIO*", "factores": "Elo gap 238→Francia | Rotación Francia J3 | Dep.★ Haaland", "amalia": "1-2"}, {"id": 62, "j": 3, "fecha": "26 jun", "sede": "Toronto", "hora": 15, "local": "Senegal", "localCode": "sn", "visit": "Irak", "visitCode": "iq", "grupo": "I", "marcador": "2-0", "p1": 73, "px": 17, "p2": 10, "xgL": 2.218, "xgV": 0.666, "conf": "BAJO*", "factores": "Elo gap 172→Senegal | Dep.★ Mané", "amalia": "2-0"}, {"id": 63, "j": 3, "fecha": "26 jun", "sede": "Seattle", "hora": 20, "local": "Egipto", "localCode": "eg", "visit": "Irán", "visitCode": "ir", "grupo": "G", "marcador": "0-1", "p1": 29, "px": 30, "p2": 42, "xgL": 0.931, "xgV": 1.183, "conf": "BAJO", "factores": "Viaje Irán 1553km | Dep.★ Salah", "amalia": "0-1"}, {"id": 64, "j": 3, "fecha": "26 jun", "sede": "Vancouver", "hora": 20, "local": "Nueva Zelanda", "localCode": "nz", "visit": "Bélgica", "visitCode": "be", "grupo": "G", "marcador": "0-5", "p1": 0, "px": 2, "p2": 91, "xgL": 0.362, "xgV": 5.016, "conf": "ALTO", "factores": "Elo gap 407→Bélgica | Viaje Bélgica 1749km | Rotación Bélgica J3", "amalia": "0-4"}, {"id": 65, "j": 3, "fecha": "26 jun", "sede": "Houston", "hora": 19, "local": "Cabo Verde", "localCode": "cv", "visit": "Arabia Saudí", "visitCode": "sa", "grupo": "H", "marcador": "1-1", "p1": 31, "px": 29, "p2": 40, "xgL": 1.027, "xgV": 1.219, "conf": "BAJO", "factores": "Calor mitigado (techo) | Debut J3 Cabo Verde | Viaje Cabo Verde 1547km", "amalia": "1-1"}, {"id": 66, "j": 3, "fecha": "26 jun", "sede": "Guadalajara", "hora": 18, "local": "Uruguay", "localCode": "uy", "visit": "España", "visitCode": "es", "grupo": "H", "marcador": "0-2", "p1": 8, "px": 17, "p2": 75, "xgL": 0.569, "xgV": 2.211, "conf": "MEDIO", "factores": "Elo gap 184→España | Altitud 1566m | Viaje Uruguay 2440km | Viaje España 2374km | Rotación España J3", "amalia": "0-2"}, {"id": 67, "j": 3, "fecha": "27 jun", "sede": "Nueva York", "hora": 17, "local": "Panamá", "localCode": "pa", "visit": "Inglaterra", "visitCode": "gb-eng", "grupo": "L", "marcador": "0-3", "p1": 3, "px": 8, "p2": 89, "xgL": 0.511, "xgV": 3.345, "conf": "ALTO", "factores": "Elo gap 274→Inglaterra | Rotación Inglaterra J3", "amalia": "0-3"}, {"id": 68, "j": 3, "fecha": "27 jun", "sede": "Filadelfia", "hora": 17, "local": "Croacia", "localCode": "hr", "visit": "Ghana", "visitCode": "gh", "grupo": "L", "marcador": "1-0", "p1": 68, "px": 20, "p2": 12, "xgL": 1.964, "xgV": 0.683, "conf": "MEDIO", "factores": "Elo gap 156→Croacia", "amalia": "1-0"}, {"id": 69, "j": 3, "fecha": "27 jun", "sede": "Kansas City", "hora": 21, "local": "Argelia", "localCode": "dz", "visit": "Austria", "visitCode": "at", "grupo": "J", "marcador": "1-1", "p1": 29, "px": 28, "p2": 43, "xgL": 1.026, "xgV": 1.315, "conf": "BAJO", "factores": "WBGT calor | Viaje Argelia 2399km", "amalia": "1-1"}, {"id": 70, "j": 3, "fecha": "27 jun", "sede": "Dallas", "hora": 21, "local": "Jordania", "localCode": "jo", "visit": "Argentina", "visitCode": "ar", "grupo": "J", "marcador": "0-4", "p1": 1, "px": 3, "p2": 93, "xgL": 0.387, "xgV": 4.343, "conf": "MEDIO*", "factores": "Elo gap 350→Argentina | Calor mitigado (techo) | Debut J3 Jordania | Viaje Jordania 2315km | Rotación Argentina J3", "amalia": "0-4"}, {"id": 71, "j": 3, "fecha": "27 jun", "sede": "Miami", "hora": 19, "local": "Colombia", "localCode": "co", "visit": "Portugal", "visitCode": "pt", "grupo": "K", "marcador": "0-1", "p1": 18, "px": 23, "p2": 59, "xgL": 0.853, "xgV": 1.761, "conf": "BAJO*", "factores": "WBGT calor | Viaje Colombia 2440km | Viaje Portugal 1547km | Dep.★ L.Díaz | Dep.★ Ronaldo", "amalia": "0-1"}, {"id": 72, "j": 3, "fecha": "27 jun", "sede": "Atlanta", "hora": 19, "local": "RD Congo", "localCode": "cd", "visit": "Uzbekistán", "visitCode": "uz", "grupo": "K", "marcador": "1-1", "p1": 40, "px": 28, "p2": 32, "xgL": 1.274, "xgV": 1.113, "conf": "BAJO", "factores": "Calor mitigado (techo) | Debut J3 Uzbekistán | Viaje RD Congo 2374km", "amalia": "1-1"}], "groups": {"A": [{"pos": 1, "equipo": "México", "code": "mx", "pts": 6.23, "gf": 5.67, "gc": 2.48, "ptop2": null, "status": "directo"}, {"pos": 2, "equipo": "Corea del Sur", "code": "kr", "pts": 4.48, "gf": 3.86, "gc": 3.34, "ptop2": null, "status": "directo"}, {"pos": 3, "equipo": "Chequia", "code": "cz", "pts": 3.07, "gf": 2.91, "gc": 4.54, "ptop2": null, "status": "tercero_pasa"}, {"pos": 4, "equipo": "Sudáfrica", "code": "za", "pts": 2.73, "gf": 2.67, "gc": 4.75, "ptop2": null, "status": "fuera"}], "B": [{"pos": 1, "equipo": "Suiza", "code": "ch", "pts": 5.74, "gf": 4.88, "gc": 2.57, "ptop2": null, "status": "directo"}, {"pos": 2, "equipo": "Bosnia", "code": "ba", "pts": 4.03, "gf": 3.59, "gc": 3.68, "ptop2": null, "status": "directo"}, {"pos": 3, "equipo": "Canadá", "code": "ca", "pts": 4.02, "gf": 3.73, "gc": 3.89, "ptop2": null, "status": "tercero_pasa"}, {"pos": 4, "equipo": "Catar", "code": "qa", "pts": 2.67, "gf": 2.6, "gc": 4.66, "ptop2": null, "status": "fuera"}], "C": [{"pos": 1, "equipo": "Marruecos", "code": "ma", "pts": 7.22, "gf": 8.07, "gc": 1.91, "ptop2": null, "status": "directo"}, {"pos": 2, "equipo": "Brasil", "code": "br", "pts": 5.84, "gf": 5.73, "gc": 2.67, "ptop2": null, "status": "directo"}, {"pos": 3, "equipo": "Escocia", "code": "gb-sct", "pts": 2.94, "gf": 3.02, "gc": 5.3, "ptop2": null, "status": "tercero_fuera"}, {"pos": 4, "equipo": "Haití", "code": "ht", "pts": 1.03, "gf": 1.75, "gc": 8.68, "ptop2": null, "status": "fuera"}], "D": [{"pos": 1, "equipo": "EE. UU.", "code": "us", "pts": 5.97, "gf": 5.57, "gc": 2.8, "ptop2": null, "status": "directo"}, {"pos": 2, "equipo": "Turquía", "code": "tr", "pts": 4.94, "gf": 4.47, "gc": 3.28, "ptop2": null, "status": "directo"}, {"pos": 3, "equipo": "Australia", "code": "au", "pts": 3.21, "gf": 3.2, "gc": 4.6, "ptop2": null, "status": "tercero_pasa"}, {"pos": 4, "equipo": "Paraguay", "code": "py", "pts": 2.46, "gf": 2.61, "gc": 5.16, "ptop2": null, "status": "fuera"}], "E": [{"pos": 1, "equipo": "Alemania", "code": "de", "pts": 7.44, "gf": 8.9, "gc": 2.02, "ptop2": null, "status": "directo"}, {"pos": 2, "equipo": "Ecuador", "code": "ec", "pts": 4.58, "gf": 4.56, "gc": 3.83, "ptop2": null, "status": "directo"}, {"pos": 3, "equipo": "Costa de Marfil", "code": "ci", "pts": 4.13, "gf": 4.24, "gc": 4.3, "ptop2": null, "status": "tercero_pasa"}, {"pos": 4, "equipo": "Curazao", "code": "cw", "pts": 0.87, "gf": 1.74, "gc": 9.3, "ptop2": null, "status": "fuera"}], "F": [{"pos": 1, "equipo": "Países Bajos", "code": "nl", "pts": 6.48, "gf": 6.19, "gc": 2.43, "ptop2": null, "status": "directo"}, {"pos": 2, "equipo": "Japón", "code": "jp", "pts": 5.26, "gf": 4.73, "gc": 3.05, "ptop2": null, "status": "directo"}, {"pos": 3, "equipo": "Suecia", "code": "se", "pts": 2.99, "gf": 3.01, "gc": 4.86, "ptop2": null, "status": "tercero_pasa"}, {"pos": 4, "equipo": "Túnez", "code": "tn", "pts": 1.98, "gf": 2.22, "gc": 5.8, "ptop2": null, "status": "fuera"}], "G": [{"pos": 1, "equipo": "Bélgica", "code": "be", "pts": 7.56, "gf": 9.11, "gc": 1.59, "ptop2": null, "status": "directo"}, {"pos": 2, "equipo": "Irán", "code": "ir", "pts": 4.7, "gf": 4.45, "gc": 3.31, "ptop2": null, "status": "directo"}, {"pos": 3, "equipo": "Egipto", "code": "eg", "pts": 4.05, "gf": 3.91, "gc": 4.02, "ptop2": null, "status": "tercero_pasa"}, {"pos": 4, "equipo": "Nueva Zelanda", "code": "nz", "pts": 0.71, "gf": 1.47, "gc": 10.02, "ptop2": null, "status": "fuera"}], "H": [{"pos": 1, "equipo": "España", "code": "es", "pts": 8.29, "gf": 11.99, "gc": 1.34, "ptop2": null, "status": "directo"}, {"pos": 2, "equipo": "Uruguay", "code": "uy", "pts": 5.0, "gf": 4.53, "gc": 3.41, "ptop2": null, "status": "directo"}, {"pos": 3, "equipo": "Arabia Saudí", "code": "sa", "pts": 2.13, "gf": 2.24, "gc": 7.29, "ptop2": null, "status": "tercero_fuera"}, {"pos": 4, "equipo": "Cabo Verde", "code": "cv", "pts": 1.69, "gf": 2.0, "gc": 8.73, "ptop2": null, "status": "fuera"}], "I": [{"pos": 1, "equipo": "Francia", "code": "fr", "pts": 8.07, "gf": 10.37, "gc": 1.62, "ptop2": null, "status": "directo"}, {"pos": 2, "equipo": "Senegal", "code": "sn", "pts": 4.34, "gf": 4.33, "gc": 4.24, "ptop2": null, "status": "directo"}, {"pos": 3, "equipo": "Noruega", "code": "no", "pts": 3.61, "gf": 3.93, "gc": 5.38, "ptop2": null, "status": "tercero_pasa"}, {"pos": 4, "equipo": "Irak", "code": "iq", "pts": 1.09, "gf": 1.85, "gc": 9.23, "ptop2": null, "status": "fuera"}], "J": [{"pos": 1, "equipo": "Argentina", "code": "ar", "pts": 8.12, "gf": 9.87, "gc": 1.5, "ptop2": null, "status": "directo"}, {"pos": 2, "equipo": "Austria", "code": "at", "pts": 4.09, "gf": 3.85, "gc": 4.4, "ptop2": null, "status": "directo"}, {"pos": 3, "equipo": "Argelia", "code": "dz", "pts": 3.39, "gf": 3.21, "gc": 4.92, "ptop2": null, "status": "tercero_pasa"}, {"pos": 4, "equipo": "Jordania", "code": "jo", "pts": 1.4, "gf": 1.86, "gc": 7.97, "ptop2": null, "status": "fuera"}], "K": [{"pos": 1, "equipo": "Portugal", "code": "pt", "pts": 7.7, "gf": 9.61, "gc": 1.79, "ptop2": null, "status": "directo"}, {"pos": 2, "equipo": "Colombia", "code": "co", "pts": 5.93, "gf": 6.19, "gc": 2.89, "ptop2": null, "status": "directo"}, {"pos": 3, "equipo": "RD Congo", "code": "cd", "pts": 1.94, "gf": 2.4, "gc": 7.56, "ptop2": null, "status": "tercero_fuera"}, {"pos": 4, "equipo": "Uzbekistán", "code": "uz", "pts": 1.57, "gf": 2.1, "gc": 8.06, "ptop2": null, "status": "fuera"}], "L": [{"pos": 1, "equipo": "Inglaterra", "code": "gb-eng", "pts": 7.7, "gf": 8.73, "gc": 1.76, "ptop2": null, "status": "directo"}, {"pos": 2, "equipo": "Croacia", "code": "hr", "pts": 5.06, "gf": 4.58, "gc": 3.24, "ptop2": null, "status": "directo"}, {"pos": 3, "equipo": "Panamá", "code": "pa", "pts": 2.16, "gf": 2.42, "gc": 6.39, "ptop2": null, "status": "tercero_fuera"}, {"pos": 4, "equipo": "Ghana", "code": "gh", "pts": 2.03, "gf": 2.36, "gc": 6.69, "ptop2": null, "status": "fuera"}]}, "clasificados": {"directos": [{"pos": 1, "equipo": "México", "code": "mx", "pts": 6.23, "gf": 5.67, "gc": 2.48, "ptop2": null, "status": "directo", "grupo": "A"}, {"pos": 2, "equipo": "Corea del Sur", "code": "kr", "pts": 4.48, "gf": 3.86, "gc": 3.34, "ptop2": null, "status": "directo", "grupo": "A"}, {"pos": 1, "equipo": "Suiza", "code": "ch", "pts": 5.74, "gf": 4.88, "gc": 2.57, "ptop2": null, "status": "directo", "grupo": "B"}, {"pos": 2, "equipo": "Bosnia", "code": "ba", "pts": 4.03, "gf": 3.59, "gc": 3.68, "ptop2": null, "status": "directo", "grupo": "B"}, {"pos": 1, "equipo": "Marruecos", "code": "ma", "pts": 7.22, "gf": 8.07, "gc": 1.91, "ptop2": null, "status": "directo", "grupo": "C"}, {"pos": 2, "equipo": "Brasil", "code": "br", "pts": 5.84, "gf": 5.73, "gc": 2.67, "ptop2": null, "status": "directo", "grupo": "C"}, {"pos": 1, "equipo": "EE. UU.", "code": "us", "pts": 5.97, "gf": 5.57, "gc": 2.8, "ptop2": null, "status": "directo", "grupo": "D"}, {"pos": 2, "equipo": "Turquía", "code": "tr", "pts": 4.94, "gf": 4.47, "gc": 3.28, "ptop2": null, "status": "directo", "grupo": "D"}, {"pos": 1, "equipo": "Alemania", "code": "de", "pts": 7.44, "gf": 8.9, "gc": 2.02, "ptop2": null, "status": "directo", "grupo": "E"}, {"pos": 2, "equipo": "Ecuador", "code": "ec", "pts": 4.58, "gf": 4.56, "gc": 3.83, "ptop2": null, "status": "directo", "grupo": "E"}, {"pos": 1, "equipo": "Países Bajos", "code": "nl", "pts": 6.48, "gf": 6.19, "gc": 2.43, "ptop2": null, "status": "directo", "grupo": "F"}, {"pos": 2, "equipo": "Japón", "code": "jp", "pts": 5.26, "gf": 4.73, "gc": 3.05, "ptop2": null, "status": "directo", "grupo": "F"}, {"pos": 1, "equipo": "Bélgica", "code": "be", "pts": 7.56, "gf": 9.11, "gc": 1.59, "ptop2": null, "status": "directo", "grupo": "G"}, {"pos": 2, "equipo": "Irán", "code": "ir", "pts": 4.7, "gf": 4.45, "gc": 3.31, "ptop2": null, "status": "directo", "grupo": "G"}, {"pos": 1, "equipo": "España", "code": "es", "pts": 8.29, "gf": 11.99, "gc": 1.34, "ptop2": null, "status": "directo", "grupo": "H"}, {"pos": 2, "equipo": "Uruguay", "code": "uy", "pts": 5.0, "gf": 4.53, "gc": 3.41, "ptop2": null, "status": "directo", "grupo": "H"}, {"pos": 1, "equipo": "Francia", "code": "fr", "pts": 8.07, "gf": 10.37, "gc": 1.62, "ptop2": null, "status": "directo", "grupo": "I"}, {"pos": 2, "equipo": "Senegal", "code": "sn", "pts": 4.34, "gf": 4.33, "gc": 4.24, "ptop2": null, "status": "directo", "grupo": "I"}, {"pos": 1, "equipo": "Argentina", "code": "ar", "pts": 8.12, "gf": 9.87, "gc": 1.5, "ptop2": null, "status": "directo", "grupo": "J"}, {"pos": 2, "equipo": "Austria", "code": "at", "pts": 4.09, "gf": 3.85, "gc": 4.4, "ptop2": null, "status": "directo", "grupo": "J"}, {"pos": 1, "equipo": "Portugal", "code": "pt", "pts": 7.7, "gf": 9.61, "gc": 1.79, "ptop2": null, "status": "directo", "grupo": "K"}, {"pos": 2, "equipo": "Colombia", "code": "co", "pts": 5.93, "gf": 6.19, "gc": 2.89, "ptop2": null, "status": "directo", "grupo": "K"}, {"pos": 1, "equipo": "Inglaterra", "code": "gb-eng", "pts": 7.7, "gf": 8.73, "gc": 1.76, "ptop2": null, "status": "directo", "grupo": "L"}, {"pos": 2, "equipo": "Croacia", "code": "hr", "pts": 5.06, "gf": 4.58, "gc": 3.24, "ptop2": null, "status": "directo", "grupo": "L"}], "terceros": [{"equipo": "Costa de Marfil", "code": "ci", "grupo": "E", "pts": 4.13, "pasa": true}, {"equipo": "Egipto", "code": "eg", "grupo": "G", "pts": 4.05, "pasa": true}, {"equipo": "Canadá", "code": "ca", "grupo": "B", "pts": 4.02, "pasa": true}, {"equipo": "Noruega", "code": "no", "grupo": "I", "pts": 3.61, "pasa": true}, {"equipo": "Argelia", "code": "dz", "grupo": "J", "pts": 3.39, "pasa": true}, {"equipo": "Australia", "code": "au", "grupo": "D", "pts": 3.21, "pasa": true}, {"equipo": "Chequia", "code": "cz", "grupo": "A", "pts": 3.07, "pasa": true}, {"equipo": "Suecia", "code": "se", "grupo": "F", "pts": 2.99, "pasa": true}, {"equipo": "Escocia", "code": "gb-sct", "grupo": "C", "pts": 2.94, "pasa": false}, {"equipo": "Panamá", "code": "pa", "grupo": "L", "pts": 2.16, "pasa": false}, {"equipo": "Arabia Saudí", "code": "sa", "grupo": "H", "pts": 2.13, "pasa": false}, {"equipo": "RD Congo", "code": "cd", "grupo": "K", "pts": 1.94, "pasa": false}]}, "kpis": {"partidos": 72, "selecciones": 48, "grupos": 12, "goles": 139}, "torneo": {"anfitriones": [["ca", "Canadá"], ["mx", "México"], ["us", "EE. UU."]], "inicio": "11 jun", "fin": "19 jul 2026", "sedes": 16, "total": 104, "favorito": {"equipo": "España", "code": "es", "pts": 8.3, "grupo": "H"}}};
+const FLAG  = c => `https://flagcdn.com/w80/${c}.png`;
+const FLAGS = c => `https://flagcdn.com/w40/${c}.png`;
+const T = DATA.torneo;
+
+/* anfitriones + meta strip */
+document.getElementById('host').innerHTML = T.anfitriones.map(([c,n])=>
+  `<div class="h"><img src="${FLAGS(c)}" alt="">${n}</div>`).join('');
+document.getElementById('metastrip').innerHTML = [
+  ['📅',`<b>${T.inicio}</b> – ${T.fin}`],['🏟️',`<b>${T.sedes}</b> sedes`],
+  ['⚽',`<b>${T.total}</b> partidos`],['🌍',`<b>48</b> selecciones`]
+].map(([i,t])=>`<span class="ms">${i} ${t}</span>`).join('');
+
+/* KPIs */
+document.getElementById('kpis').innerHTML = [
+  ['⚽','Partidos',DATA.kpis.partidos],['🌍','Selecciones',DATA.kpis.selecciones],
+  ['📊','Grupos',DATA.kpis.grupos],['🥅','Goles previstos',DATA.kpis.goles]
+].map(([ic,l,n])=>`<div class="kpi"><div class="ic">${ic}</div><div class="n">${n}</div><div class="l">${l}</div></div>`).join('');
+
+/* favorito */
+const f=T.favorito;
+document.getElementById('favbox').innerHTML=`
+  <span class="trophy">🏆</span>
+  <img src="${FLAG(f.code)}" alt="">
+  <div><div class="ft">Favorito del modelo</div><div class="fn">${f.equipo}</div></div>
+  <div class="fp">Grupo ${f.grupo}<b>${f.pts}</b>pts esperados</div>`;
+
+/* marcador de puntos */
+function calcPuntos(){
+  const r={a:{pts:0,exactos:0,resultado:0},m:{pts:0,exactos:0,resultado:0},jugados:0};
+  DATA.matches.forEach(match=>{
+    if(!match.resultado) return;
+    r.jugados++;
+    const [rl,rv]=match.resultado.split('-').map(Number);
+    const outR=rl>rv?'1':rl===rv?'X':'2';
+    // Amalia
+    if(match.amalia){
+      const [al,av]=match.amalia.split('-').map(Number);
+      const outA=al>av?'1':al===av?'X':'2';
+      if(outA===outR){r.a.pts+=3;r.a.resultado++;}
+      if(al===rl&&av===rv){r.a.pts+=1;r.a.exactos++;}
+    }
+    // Modelo
+    const [ml,mv]=match.marcador.split('-').map(Number);
+    const outM=ml>mv?'1':ml===mv?'X':'2';
+    if(outM===outR){r.m.pts+=3;r.m.resultado++;}
+    if(ml===rl&&mv===rv){r.m.pts+=1;r.m.exactos++;}
+  });
+  return r;
+}
+const P=calcPuntos();
+const leader=P.a.pts>P.m.pts?'a':P.m.pts>P.a.pts?'m':'tie';
+document.getElementById('scoreboard').innerHTML=`
+  <div class="sb-wrap">
+    <div class="sb-label">🏅 Marcador · ${P.jugados} partidos</div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="sb-player">
+        <div class="sb-name">${leader==='a'?'👑 ':''} Amalia</div>
+        <div class="sb-pts">${P.a.pts}</div>
+        <div class="sb-detail">${P.a.resultado} resultado · ${P.a.exactos} exacto</div>
+      </div>
+      <div class="sb-vs">VS</div>
+      <div class="sb-player">
+        <div class="sb-name">${leader==='m'?'👑 ':''}Modelo v5</div>
+        <div class="sb-pts">${P.m.pts}</div>
+        <div class="sb-detail">${P.m.resultado} resultado · ${P.m.exactos} exacto</div>
+      </div>
+    </div>
+  </div>`;
+
+/* tabs */
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  ['partidos','grupos','pase'].forEach(v=>
+    document.getElementById('view-'+v).classList.toggle('hidden', v!==t.dataset.view));
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+/* match card */
+function confClass(c){const b=c.replace('*','');return `conf ${b}${c.includes('*')?' star':''}`;}
+function confTxt(c){const m={ALTO:'Alta',MEDIO:'Media',BAJO:'Baja'};return (m[c.replace('*','')]||c)+(c.includes('*')?' ★':'');}
+function matchCard(m){
+  const facts=m.factores.split(' | ').filter(f=>f&&f!=='Equilibrado').map(f=>`<span class="fact">${f}</span>`).join('');
+  const inaug=m.id===1?'<span class="inaug">🎉 INAUGURAL</span>':'';
+  return `<div class="match" data-j="${m.j}" data-g="${m.grupo}"
+       data-teams="${(m.local+' '+m.visit).toLowerCase()}" onclick="this.classList.toggle('open')">
+    <div class="m-top">
+      <div class="m-meta"><span class="jchip">J${m.j}</span>${inaug} ${m.fecha} · ${m.sede}</div>
+      <span class="${confClass(m.conf)}">${confTxt(m.conf)}</span>
+    </div>
+    <div class="m-teams">
+      <div class="team"><img loading="lazy" src="${FLAG(m.localCode)}" alt=""><div class="tn">${m.local}</div></div>
+      <div class="score">${m.marcador}<small>Grupo ${m.grupo}</small></div>
+      <div class="team"><img loading="lazy" src="${FLAG(m.visitCode)}" alt=""><div class="tn">${m.visit}</div></div>
+    </div>
+    <div class="bar"><i class="b1" style="width:${m.p1}%"></i><i class="bx" style="width:${m.px}%"></i><i class="b2" style="width:${m.p2}%"></i></div>
+    <div class="plabels"><span><b>${m.p1}%</b> ${m.local}</span><span>${m.px}% X</span><span>${m.visit} <b>${m.p2}%</b></span></div>
+    <div class="xg">📐 xG previstos · ${m.local} ${m.xgL.toFixed(2)} — ${m.visit} ${m.xgV.toFixed(2)}</div>
+    ${facts?`<div class="facts">${facts}</div>`:''}
+    <div class="compare">
+      <div class="cmp ${m.resultado!=null?(m.amalia_acierto?'hit-bg':'miss-bg'):''}">
+        <div class="cmp-who">Amalia</div>
+        <div class="cmp-sc">${m.amalia||'—'}</div>
+        ${m.resultado!=null?`<span class="cmp-badge">${m.amalia_acierto?'✅':'❌'}</span>`:''}
+      </div>
+      <div class="cmp ${m.resultado!=null?(m.acierto?'hit-bg':'miss-bg'):''}">
+        <div class="cmp-who">Modelo v5</div>
+        <div class="cmp-sc">${m.marcador}</div>
+        ${m.resultado!=null?`<span class="cmp-badge">${m.acierto?'✅':'❌'}</span>`:''}
+      </div>
+      <div class="cmp real">
+        <div class="cmp-who">Real</div>
+        <div class="cmp-sc ${m.resultado==null?'pending':''}">${m.resultado||'Pendiente'}</div>
+      </div>
+    </div>
+    <div class="hint">toca para ver el análisis ▾</div>
+  </div>`;
+}
+document.getElementById('matches').innerHTML = DATA.matches.map(matchCard).join('');
+
+/* grupo pills */
+const grupos=Object.keys(DATA.groups);
+document.getElementById('fgrupo').insertAdjacentHTML('beforeend',
+  grupos.map(g=>`<button class="pill" data-g="${g}">Grupo ${g}</button>`).join(''));
+
+/* filtros */
+let fJ='all',fG='all',fQ='';
+function applyFilters(){
+  let vis=0;
+  document.querySelectorAll('#matches .match').forEach(el=>{
+    const ok=(fJ==='all'||el.dataset.j===fJ)&&(fG==='all'||el.dataset.g===fG)&&(!fQ||el.dataset.teams.includes(fQ));
+    el.classList.toggle('hidden',!ok); if(ok)vis++;
+  });
+  document.getElementById('noMatch').classList.toggle('hidden',vis>0);
+}
+document.querySelectorAll('#fjornada .pill').forEach(p=>p.onclick=()=>{
+  document.querySelectorAll('#fjornada .pill').forEach(x=>x.classList.remove('active'));
+  p.classList.add('active');fJ=p.dataset.j;applyFilters();});
+document.getElementById('fgrupo').addEventListener('click',e=>{
+  if(!e.target.dataset.g)return;
+  document.querySelectorAll('#fgrupo .pill').forEach(x=>x.classList.remove('active'));
+  e.target.classList.add('active');fG=e.target.dataset.g;applyFilters();});
+document.getElementById('search').oninput=e=>{fQ=e.target.value.trim().toLowerCase();applyFilters();};
+
+/* grupos */
+document.getElementById('groups').innerHTML=grupos.map(g=>{
+  const rows=DATA.groups[g].map(r=>{
+    const tag=r.status==='directo'?'<span class="tag d">PASA</span>':(r.status==='tercero_pasa'?'<span class="tag t">3.º</span>':'');
+    const prob=r.ptop2!=null?`<span class="gprob">${r.ptop2}% clasifica</span>`:'';
+    return `<div class="grow ${r.status}"><span class="gp">${r.pos}</span>
+      <img loading="lazy" src="${FLAGS(r.code)}" alt="">
+      <span class="ge"><span>${r.equipo}${tag}</span>${prob}</span>
+      <span class="gpts">${r.pts.toFixed(1)} <small>pts</small></span></div>`;}).join('');
+  return `<div class="gcard"><div class="gh"><span class="gl">Grupo ${g}</span><span class="gt">% de clasificar</span></div>${rows}</div>`;
+}).join('');
+
+/* pase */
+document.getElementById('qdirect').innerHTML=DATA.clasificados.directos.map(d=>`
+  <div class="qcard"><img loading="lazy" src="${FLAGS(d.code)}" alt="">
+    <div><div class="qn">${d.equipo}</div><div class="qg">Grupo ${d.grupo} · ${d.pts.toFixed(1)} pts</div></div></div>`).join('');
+document.getElementById('qthird').innerHTML=DATA.clasificados.terceros.map(t=>`
+  <div class="qcard ${t.pasa?'amber':'out'}"><img loading="lazy" src="${FLAGS(t.code)}" alt="">
+    <div><div class="qn">${t.equipo}</div><div class="qg">Grupo ${t.grupo} · ${t.pts.toFixed(1)} pts${t.pasa?'':' · fuera'}</div></div></div>`).join('');
+</script>
+</body>
+</html>

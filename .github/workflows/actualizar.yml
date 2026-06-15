@@ -1,0 +1,49 @@
+name: Actualizar resultados Mundial 2026
+
+on:
+  schedule:
+    # Cada 30 min. Solo despliega a Netlify si hay cambios reales (git diff),
+    # así que las corridas sin partidos nuevos no consumen créditos de Netlify.
+    - cron: '*/30 * * * *'
+  workflow_dispatch: {}   # permite ejecutar manualmente desde la pestaña Actions
+
+permissions:
+  contents: write
+
+concurrency:
+  group: actualizar-mundial
+  cancel-in-progress: false
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Actualizar index.html con resultados reales
+        run: python actualizar_resultados.py --api-key "${{ secrets.FOOTBALL_API_KEY }}"
+
+      - name: Desplegar a Netlify solo si hay cambios
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: aa1989c6-5720-4b30-a499-b42192329c3f
+        run: |
+          if [[ -n "$(git status --porcelain compartir/index.html)" ]]; then
+            echo "Cambios detectados → desplegando a Netlify"
+            npm install -g netlify-cli
+            netlify deploy --prod --dir compartir --site "$NETLIFY_SITE_ID" --auth "$NETLIFY_AUTH_TOKEN"
+            git config user.name  "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add compartir/index.html
+            git commit -m "Actualizar resultados [skip ci]"
+            git push
+          else
+            echo "Sin cambios → no se despliega (no se gastan créditos)."
+          fi
