@@ -37,9 +37,10 @@ TEAM_MAP = {
     "Paraguay": "Paraguay", "Scotland": "Escocia", "DR Congo": "RD Congo",
     "Tunisia": "Túnez", "Uzbekistan": "Uzbekistán", "Germany": "Alemania",
     "New Zealand": "Nueva Zelanda", "Qatar": "Catar", "South Africa": "Sudáfrica",
-    "Saudi Arabia": "Arabia Saudí", "Haiti": "Haití", "Curacao": "Curazao",
+    "Saudi Arabia": "Arabia Saudí", "Haiti": "Haití",
+    "Curacao": "Curazao", "Curaçao": "Curazao",
     "Bosnia and Herzegovina": "Bosnia", "Bosnia-Herzegovina": "Bosnia",
-    "Cape Verde": "Cabo Verde",
+    "Cape Verde": "Cabo Verde", "Cape Verde Islands": "Cabo Verde",
     "Jordan": "Jordania", "Iraq": "Irak", "Ghana": "Ghana", "Panama": "Panamá",
 }
 
@@ -51,14 +52,22 @@ def fetch_results(api_key: str) -> dict[str, dict]:
     r.raise_for_status()
 
     results = {}
+    sin_mapear = set()
     for m in r.json().get("matches", []):
         if m["status"] != "FINISHED":
             continue
+        for side in ("homeTeam", "awayTeam"):
+            if m[side]["name"] not in TEAM_MAP:
+                sin_mapear.add(m[side]["name"])
         home = TEAM_MAP.get(m["homeTeam"]["name"], m["homeTeam"]["name"])
         away = TEAM_MAP.get(m["awayTeam"]["name"], m["awayTeam"]["name"])
         gl = m["score"]["fullTime"]["home"]
         gv = m["score"]["fullTime"]["away"]
         results[(home, away)] = {"gl": gl, "gv": gv}
+
+    if sin_mapear:
+        # Visible en el log del workflow: estos equipos no se inyectarán hasta añadirlos a TEAM_MAP
+        print(f"  ⚠️  EQUIPOS SIN MAPEAR (no se reflejan sus resultados): {sorted(sin_mapear)}")
     return results
 
 
