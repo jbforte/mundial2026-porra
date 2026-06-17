@@ -138,6 +138,29 @@ h1 .yr{color:var(--gold)}
   color:var(--grass-dk);white-space:nowrap}
 .score small{font-family:"Inter";font-size:.62rem;color:var(--muted);font-weight:700;display:block;
   text-align:center;letter-spacing:.04em;text-transform:uppercase;margin-top:1px}
+/* separador entre banderas */
+.vsmid{font-family:var(--cond);font-size:1.1rem;font-weight:800;color:var(--muted);text-align:center;text-transform:uppercase}
+.vsmid small{display:block;font-family:"Inter";font-size:.58rem;color:var(--slate);font-weight:700;letter-spacing:.04em;margin-top:2px}
+/* ===== DUELO Real vs Amalia (centro de la tarjeta) ===== */
+.duel{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;margin:12px 14px 0;
+  padding:12px 10px;border-radius:14px;background:linear-gradient(135deg,#0a3d20,#11512c);
+  border:1.5px solid rgba(244,196,48,.3);box-shadow:0 4px 14px rgba(7,46,24,.25)}
+.duel.win{border-color:rgba(22,163,74,.7);box-shadow:0 0 0 1px rgba(22,163,74,.4),0 4px 16px rgba(22,163,74,.25)}
+.duel.lose{border-color:rgba(220,38,38,.6)}
+.duel.pend{background:linear-gradient(135deg,#1e293b,#334155);border-color:rgba(148,163,184,.35)}
+.duel-side{text-align:center;color:#fff}
+.duel-lbl{display:block;font-family:var(--cond);font-size:.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.06em;color:var(--gold-soft)}
+.duel-sc{display:block;font-family:var(--cond);font-size:2.2rem;font-weight:900;line-height:1;color:#fff;
+  text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.duel-vs{font-family:var(--cond);font-size:1.05rem;font-weight:900;color:var(--gold);
+  background:rgba(244,196,48,.15);border:1.5px solid rgba(244,196,48,.5);border-radius:99px;
+  width:34px;height:34px;display:flex;align-items:center;justify-content:center}
+.duel-v{text-align:center;font-size:.74rem;font-weight:700;margin:9px 14px 0;padding:5px;border-radius:8px}
+.duel-v.exact{background:#fef3c7;color:#b45309;box-shadow:inset 0 0 0 1px rgba(244,196,48,.5)}
+.duel-v.ok{background:#dcfce7;color:#15803d}
+.duel-v.no{background:#fee2e2;color:#b91c1c}
+.duel-v.wait{background:#f1f5f9;color:#64748b}
 .bar{display:flex;height:8px;border-radius:5px;overflow:hidden;margin:14px 14px 0;background:var(--line)}
 .bar i{display:block;height:100%}
 .bar .b1{background:var(--green)} .bar .bx{background:var(--slate)} .bar .b2{background:var(--blue)}
@@ -171,16 +194,20 @@ h1 .yr{color:var(--gold)}
   border-bottom:3px solid var(--gold)}
 .gh .gl{font-family:var(--cond);font-weight:900;font-size:1.25rem;letter-spacing:.04em;text-transform:uppercase}
 .gh .gt{font-size:.66rem;opacity:.8;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
-.grow{display:grid;grid-template-columns:22px 32px 1fr auto;align-items:center;gap:10px;
-  padding:11px 14px;border-bottom:1px solid var(--line);font-size:.9rem}
+.grow{display:grid;grid-template-columns:38px 30px 1fr auto auto;align-items:center;gap:9px;
+  padding:11px 12px;border-bottom:1px solid var(--line);font-size:.9rem}
 .grow:last-child{border-bottom:none}
-.grow .gp{font-family:var(--cond);font-weight:800;color:var(--muted);font-size:.95rem;text-align:center}
+.grow .gp{font-family:var(--cond);font-weight:800;color:var(--muted);font-size:1.05rem;text-align:center;line-height:1}
+.grow .gp .mov{display:block;font-family:"Inter";font-size:.54rem;font-weight:700;margin-top:1px}
+.grow .gp .mov.up{color:var(--green)} .grow .gp .mov.dn{color:var(--red)} .grow .gp .mov.eq{color:var(--slate)}
 .grow img{width:30px;height:21px;object-fit:cover;border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.18)}
 .grow .ge{font-weight:700;display:flex;flex-direction:column;justify-content:center;line-height:1.18}
-.grow .gprob{font-size:.62rem;color:var(--muted);font-weight:600}
+.grow .gprob{font-size:.6rem;color:var(--muted);font-weight:600}
 .grow.directo .gprob{color:var(--green)} .grow.tercero_pasa .gprob{color:var(--amber)}
-.grow .gpts{font-family:var(--cond);font-weight:800;font-size:1.05rem;color:var(--grass-dk);font-variant-numeric:tabular-nums}
-.grow .gpts small{color:var(--muted);font-weight:600;font-size:.62rem;font-family:"Inter"}
+.grow .greal{font-family:var(--cond);font-weight:900;font-size:1.25rem;color:var(--grass-dk);text-align:right;font-variant-numeric:tabular-nums}
+.grow .greal small{display:block;color:var(--muted);font-weight:600;font-size:.55rem;font-family:"Inter";text-transform:uppercase;letter-spacing:.03em}
+.grow .gest{text-align:right;font-family:var(--cond);font-weight:700;font-size:1rem;color:var(--slate);min-width:42px}
+.grow .gest small{display:block;color:var(--muted);font-weight:600;font-size:.55rem;font-family:"Inter";text-transform:uppercase}
 .grow.directo{background:linear-gradient(90deg,rgba(22,163,74,.12),transparent)}
 .grow.directo .gp{color:var(--green)}
 .grow.tercero_pasa{background:linear-gradient(90deg,rgba(245,158,11,.14),transparent)}
@@ -419,6 +446,14 @@ function confTxt(c){const m={ALTO:'Alta',MEDIO:'Media',BAJO:'Baja'};return (m[c.
 function matchCard(m){
   const facts=m.factores.split(' | ').filter(f=>f&&f!=='Equilibrado').map(f=>`<span class="fact">${f}</span>`).join('');
   const inaug=m.id===1?'<span class="inaug">🎉 INAUGURAL</span>':'';
+  const jugado=m.resultado!=null;
+  const exacto=jugado&&m.amalia===m.resultado;
+  const duelCls=!jugado?'pend':(m.amalia_acierto?'win':'lose');
+  const veredicto=!jugado
+    ? '<div class="duel-v wait">⏳ Partido por jugar</div>'
+    : exacto ? '<div class="duel-v exact">🎯 ¡Amalia clavó el marcador exacto!</div>'
+    : m.amalia_acierto ? '<div class="duel-v ok">✅ Amalia acertó el resultado</div>'
+    : '<div class="duel-v no">❌ Amalia no acertó</div>';
   return `<div class="match" data-j="${m.j}" data-g="${m.grupo}"
        data-teams="${(m.local+' '+m.visit).toLowerCase()}" onclick="this.classList.toggle('open')">
     <div class="m-top">
@@ -427,9 +462,15 @@ function matchCard(m){
     </div>
     <div class="m-teams">
       <div class="team"><img loading="lazy" src="${FLAG(m.localCode)}" alt=""><div class="tn">${m.local}</div></div>
-      <div class="score">${m.amalia||m.marcador}<small>Amalia · Gpo ${m.grupo}</small></div>
+      <div class="vsmid">vs<small>Gpo ${m.grupo}</small></div>
       <div class="team"><img loading="lazy" src="${FLAG(m.visitCode)}" alt=""><div class="tn">${m.visit}</div></div>
     </div>
+    <div class="duel ${duelCls}">
+      <div class="duel-side"><span class="duel-lbl">⚽ Real</span><span class="duel-sc">${m.resultado||'?'}</span></div>
+      <div class="duel-vs">VS</div>
+      <div class="duel-side"><span class="duel-lbl">🎯 Amalia</span><span class="duel-sc">${m.amalia||'—'}</span></div>
+    </div>
+    ${veredicto}
     <div class="bar"><i class="b1" style="width:${m.p1}%"></i><i class="bx" style="width:${m.px}%"></i><i class="b2" style="width:${m.p2}%"></i></div>
     <div class="plabels"><span><b>${m.p1}%</b> ${m.local}</span><span>${m.px}% X</span><span>${m.visit} <b>${m.p2}%</b></span></div>
     <div class="xg">📐 xG previstos · ${m.local} ${m.xgL.toFixed(2)} — ${m.visit} ${m.xgV.toFixed(2)}</div>
@@ -479,16 +520,43 @@ document.getElementById('fgrupo').addEventListener('click',e=>{
   e.target.classList.add('active');fG=e.target.dataset.g;applyFilters();});
 document.getElementById('search').oninput=e=>{fQ=e.target.value.trim().toLowerCase();applyFilters();};
 
-/* grupos */
+/* grupos: tabla REAL (cómo van ahora) vs ESTIMADA del modelo */
+function tablaReal(g){
+  const eq={};
+  DATA.groups[g].forEach(r=>eq[r.equipo]={...r,rpts:0,gf:0,gc:0,pj:0});
+  DATA.matches.forEach(m=>{
+    if(m.grupo!==g||m.resultado==null)return;
+    const [a,b]=m.resultado.split('-').map(Number);
+    const L=eq[m.local],V=eq[m.visit];
+    if(L){L.pj++;L.gf+=a;L.gc+=b;}
+    if(V){V.pj++;V.gf+=b;V.gc+=a;}
+    if(a>b){if(L)L.rpts+=3;} else if(b>a){if(V)V.rpts+=3;} else {if(L)L.rpts++;if(V)V.rpts++;}
+  });
+  const arr=Object.values(eq);
+  const hayJuego=arr.some(e=>e.pj>0);
+  if(hayJuego) arr.sort((a,b)=>b.rpts-a.rpts||((b.gf-b.gc)-(a.gf-a.gc))||b.gf-a.gf);
+  else arr.sort((a,b)=>a.pos-b.pos);
+  arr.forEach((e,i)=>e.posReal=i+1);
+  return {arr,hayJuego};
+}
 document.getElementById('groups').innerHTML=grupos.map(g=>{
-  const rows=DATA.groups[g].map(r=>{
+  const {arr,hayJuego}=tablaReal(g);
+  const rows=arr.map(r=>{
     const tag=r.status==='directo'?'<span class="tag d">PASA</span>':(r.status==='tercero_pasa'?'<span class="tag t">3.º</span>':'');
-    const prob=r.ptop2!=null?`<span class="gprob">${r.ptop2}% clasifica</span>`:'';
-    return `<div class="grow ${r.status}"><span class="gp">${r.pos}</span>
+    let mov='';
+    if(hayJuego){
+      mov = r.posReal<r.pos ? `<span class="mov up">▲${r.pos-r.posReal}</span>`
+          : r.posReal>r.pos ? `<span class="mov dn">▼${r.posReal-r.pos}</span>`
+          : `<span class="mov eq">=</span>`;
+    }
+    const pos = hayJuego ? r.posReal : r.pos;
+    return `<div class="grow ${r.status}">
+      <span class="gp">${pos}${mov}</span>
       <img loading="lazy" src="${FLAGS(r.code)}" alt="">
-      <span class="ge"><span>${r.equipo}${tag}</span>${prob}</span>
-      <span class="gpts">${r.pts.toFixed(1)} <small>pts</small></span></div>`;}).join('');
-  return `<div class="gcard"><div class="gh"><span class="gl">Grupo ${g}</span><span class="gt">% de clasificar</span></div>${rows}</div>`;
+      <span class="ge"><span>${r.equipo}${tag}</span><span class="gprob">est. ${r.pos}.º · ${r.ptop2}% pasa</span></span>
+      <span class="greal">${r.rpts}<small>pts ${r.pj}PJ</small></span>
+      <span class="gest">${r.pts.toFixed(1)}<small>est.</small></span></div>`;}).join('');
+  return `<div class="gcard"><div class="gh"><span class="gl">Grupo ${g}</span><span class="gt">${hayJuego?'real ahora · vs estimado':'estimación del modelo'}</span></div>${rows}</div>`;
 }).join('');
 
 /* pase */
