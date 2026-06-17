@@ -498,6 +498,23 @@ document.getElementById('qdirect').innerHTML=DATA.clasificados.directos.map(d=>`
 document.getElementById('qthird').innerHTML=DATA.clasificados.terceros.map(t=>`
   <div class="qcard ${t.pasa?'amber':'out'}"><img loading="lazy" src="${FLAGS(t.code)}" alt="">
     <div><div class="qn">${t.equipo}</div><div class="qg">Grupo ${t.grupo} · ${t.pts.toFixed(1)} pts${t.pasa?'':' · fuera'}</div></div></div>`).join('');
+
+/* ===== AUTO-ACTUALIZACIÓN =====
+   Cada 3 min comprueba en segundo plano si hay resultados nuevos en el servidor.
+   Solo recarga la página si los datos cambiaron, para no interrumpir sin motivo. */
+(function(){
+  const snap = m => JSON.stringify(m.matches.filter(x=>x.resultado).map(x=>[x.id,x.resultado]));
+  const ACTUAL = snap(DATA);
+  setInterval(async () => {
+    if (document.hidden) return;             // no molesta si la pestaña no está visible
+    try {
+      const r = await fetch(location.pathname + '?_=' + Date.now(), {cache:'no-store'});
+      const t = await r.text();
+      const mm = t.match(/const DATA = (\{.+\});/);
+      if (mm && snap(JSON.parse(mm[1])) !== ACTUAL) location.reload();
+    } catch(e){ /* sin conexión: se reintenta en el próximo ciclo */ }
+  }, 180000);
+})();
 </script>
 </body>
 </html>
