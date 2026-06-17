@@ -427,7 +427,7 @@ function matchCard(m){
     </div>
     <div class="m-teams">
       <div class="team"><img loading="lazy" src="${FLAG(m.localCode)}" alt=""><div class="tn">${m.local}</div></div>
-      <div class="score">${m.marcador}<small>Grupo ${m.grupo}</small></div>
+      <div class="score">${m.amalia||m.marcador}<small>Amalia · Gpo ${m.grupo}</small></div>
       <div class="team"><img loading="lazy" src="${FLAG(m.visitCode)}" alt=""><div class="tn">${m.visit}</div></div>
     </div>
     <div class="bar"><i class="b1" style="width:${m.p1}%"></i><i class="bx" style="width:${m.px}%"></i><i class="b2" style="width:${m.p2}%"></i></div>
