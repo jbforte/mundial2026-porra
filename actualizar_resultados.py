@@ -22,27 +22,47 @@ BASE_URL = "https://api.football-data.org/v4"
 COMPETITION = "WC"
 HTML_PATH = Path(__file__).parent / "compartir" / "index.html"
 
-# Map football-data.org team names → names used in our HTML
-TEAM_MAP = {
-    "Mexico": "México", "Spain": "España", "France": "Francia",
-    "England": "Inglaterra", "Morocco": "Marruecos", "Brazil": "Brasil",
-    "Portugal": "Portugal", "Netherlands": "Países Bajos", "Belgium": "Bélgica",
-    "Croatia": "Croacia", "Colombia": "Colombia", "Argentina": "Argentina",
-    "Senegal": "Senegal", "Uruguay": "Uruguay", "United States": "EE. UU.",
-    "Japan": "Japón", "Switzerland": "Suiza", "Iran": "Irán",
-    "Turkey": "Turquía", "Ecuador": "Ecuador", "Austria": "Austria",
-    "South Korea": "Corea del Sur", "Australia": "Australia", "Algeria": "Argelia",
-    "Egypt": "Egipto", "Norway": "Noruega", "Canada": "Canadá",
-    "Ivory Coast": "Costa de Marfil", "Sweden": "Suecia", "Czechia": "Chequia",
-    "Paraguay": "Paraguay", "Scotland": "Escocia", "DR Congo": "RD Congo",
-    "Tunisia": "Túnez", "Uzbekistan": "Uzbekistán", "Germany": "Alemania",
-    "New Zealand": "Nueva Zelanda", "Qatar": "Catar", "South Africa": "Sudáfrica",
-    "Saudi Arabia": "Arabia Saudí", "Haiti": "Haití",
-    "Curacao": "Curazao", "Curaçao": "Curazao",
-    "Bosnia and Herzegovina": "Bosnia", "Bosnia-Herzegovina": "Bosnia",
-    "Cape Verde": "Cabo Verde", "Cape Verde Islands": "Cabo Verde",
-    "Jordan": "Jordania", "Iraq": "Irak", "Ghana": "Ghana", "Panama": "Panamá",
+# Código FIFA (tla) → nombre en español usado en el HTML.
+# Los tla son ESTABLES: no cambian aunque football-data renombre al equipo
+# ("Cape Verde"→"Cape Verde Islands", "DR Congo"→"Congo DR"...). Emparejar por
+# tla hace la actualización inmune a esos renombrados, que ya nos rompieron varias veces.
+TLA_ES = {
+    "URU": "Uruguay", "GER": "Alemania", "ESP": "España", "PAR": "Paraguay",
+    "ARG": "Argentina", "GHA": "Ghana", "BRA": "Brasil", "POR": "Portugal",
+    "JPN": "Japón", "MEX": "México", "ENG": "Inglaterra", "USA": "EE. UU.",
+    "KOR": "Corea del Sur", "FRA": "Francia", "RSA": "Sudáfrica", "ALG": "Argelia",
+    "AUS": "Australia", "NZL": "Nueva Zelanda", "SUI": "Suiza", "ECU": "Ecuador",
+    "SWE": "Suecia", "CZE": "Chequia", "CRO": "Croacia", "KSA": "Arabia Saudí",
+    "TUN": "Túnez", "TUR": "Turquía", "SEN": "Senegal", "BEL": "Bélgica",
+    "MAR": "Marruecos", "AUT": "Austria", "COL": "Colombia", "EGY": "Egipto",
+    "CAN": "Canadá", "HAI": "Haití", "IRN": "Irán", "BIH": "Bosnia",
+    "PAN": "Panamá", "CPV": "Cabo Verde", "COD": "RD Congo", "CIV": "Costa de Marfil",
+    "QAT": "Catar", "JOR": "Jordania", "IRQ": "Irak", "UZB": "Uzbekistán",
+    "NED": "Países Bajos", "NOR": "Noruega", "SCO": "Escocia", "CUW": "Curazao",
 }
+
+# Fallback por nombre, por si algún partido viniera sin tla.
+NAME_ES = {
+    "Mexico": "México", "Spain": "España", "France": "Francia", "England": "Inglaterra",
+    "Morocco": "Marruecos", "Brazil": "Brasil", "Netherlands": "Países Bajos",
+    "Belgium": "Bélgica", "Croatia": "Croacia", "United States": "EE. UU.",
+    "Japan": "Japón", "Switzerland": "Suiza", "Iran": "Irán", "Turkey": "Turquía",
+    "South Korea": "Corea del Sur", "Algeria": "Argelia", "Egypt": "Egipto",
+    "Norway": "Noruega", "Canada": "Canadá", "Ivory Coast": "Costa de Marfil",
+    "Sweden": "Suecia", "Czechia": "Chequia", "Scotland": "Escocia",
+    "DR Congo": "RD Congo", "Congo DR": "RD Congo", "Tunisia": "Túnez",
+    "Uzbekistan": "Uzbekistán", "Germany": "Alemania", "New Zealand": "Nueva Zelanda",
+    "Qatar": "Catar", "South Africa": "Sudáfrica", "Saudi Arabia": "Arabia Saudí",
+    "Haiti": "Haití", "Curacao": "Curazao", "Curaçao": "Curazao",
+    "Bosnia-Herzegovina": "Bosnia", "Bosnia and Herzegovina": "Bosnia",
+    "Cape Verde": "Cabo Verde", "Cape Verde Islands": "Cabo Verde",
+    "Jordan": "Jordania", "Iraq": "Irak",
+}
+
+
+def _team_es(team: dict) -> str | None:
+    """Nombre ES a partir del tla (estable) y, si faltara, del nombre."""
+    return TLA_ES.get(team.get("tla")) or NAME_ES.get(team.get("name"))
 
 
 def fetch_results(api_key: str) -> dict[str, dict]:
@@ -56,18 +76,18 @@ def fetch_results(api_key: str) -> dict[str, dict]:
     for m in r.json().get("matches", []):
         if m["status"] != "FINISHED":
             continue
-        for side in ("homeTeam", "awayTeam"):
-            if m[side]["name"] not in TEAM_MAP:
-                sin_mapear.add(m[side]["name"])
-        home = TEAM_MAP.get(m["homeTeam"]["name"], m["homeTeam"]["name"])
-        away = TEAM_MAP.get(m["awayTeam"]["name"], m["awayTeam"]["name"])
-        gl = m["score"]["fullTime"]["home"]
-        gv = m["score"]["fullTime"]["away"]
-        results[(home, away)] = {"gl": gl, "gv": gv}
+        home, away = _team_es(m["homeTeam"]), _team_es(m["awayTeam"])
+        for t, es in ((m["homeTeam"], home), (m["awayTeam"], away)):
+            if not es:
+                sin_mapear.add(f"{t.get('tla')}/{t.get('name')}")
+        if home and away:
+            results[(home, away)] = {
+                "gl": m["score"]["fullTime"]["home"],
+                "gv": m["score"]["fullTime"]["away"],
+            }
 
     if sin_mapear:
-        # Visible en el log del workflow: estos equipos no se inyectarán hasta añadirlos a TEAM_MAP
-        print(f"  ⚠️  EQUIPOS SIN MAPEAR (no se reflejan sus resultados): {sorted(sin_mapear)}")
+        print(f"  ⚠️  EQUIPOS SIN MAPEAR (revisar TLA_ES): {sorted(sin_mapear)}")
     return results
 
 
