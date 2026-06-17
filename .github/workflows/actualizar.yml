@@ -97,7 +97,9 @@ on:
   workflow_dispatch: {}   # permite ejecutar manualmente desde la pestaña Actions
 
 permissions:
-  contents: write
+  contents: write   # commit del HTML actualizado
+  pages: write      # publicar en GitHub Pages
+  id-token: write   # autenticación del deploy de Pages
 
 concurrency:
   group: actualizar-mundial
@@ -106,6 +108,9 @@ concurrency:
 jobs:
   actualizar:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -119,20 +124,27 @@ jobs:
       - name: Actualizar index.html con resultados reales
         run: python actualizar_resultados.py --api-key "${{ secrets.FOOTBALL_API_KEY }}"
 
-      - name: Desplegar a Netlify solo si hay cambios
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: aa1989c6-5720-4b30-a499-b42192329c3f
+      - name: Persistir cambios en el repo (si los hay)
         run: |
           if [[ -n "$(git status --porcelain compartir/index.html)" ]]; then
-            echo "Cambios detectados → desplegando a Netlify"
-            npm install -g netlify-cli
-            netlify deploy --prod --dir compartir --site "$NETLIFY_SITE_ID" --auth "$NETLIFY_AUTH_TOKEN"
             git config user.name  "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add compartir/index.html
             git commit -m "Actualizar resultados [skip ci]"
             git push
           else
-            echo "Sin cambios → no se despliega (no se gastan créditos)."
+            echo "Sin cambios en los datos."
           fi
+
+      # ---- Publicar en GitHub Pages (gratis e ilimitado) ----
+      - name: Configurar Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir artefacto (carpeta compartir)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: compartir
+
+      - name: Desplegar a GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

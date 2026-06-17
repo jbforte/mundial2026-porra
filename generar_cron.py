@@ -12,12 +12,15 @@ Uso:
 """
 
 import argparse
+import os
 from datetime import datetime, timedelta
 from pathlib import Path
 
 import requests
 
-API_KEY = "2903cb32cf5545e98ae55074c592c81b"
+# La API key se lee de la variable de entorno FOOTBALL_API_KEY (no se versiona).
+#   export FOOTBALL_API_KEY=tu_key   antes de ejecutar este script.
+API_KEY = os.environ.get("FOOTBALL_API_KEY", "")
 WORKFLOW = Path(__file__).parent / ".github" / "workflows" / "actualizar.yml"
 OFFSETS_MIN = [150]  # 2h30 tras el inicio. El script recoge TODOS los partidos
                      # finalizados en cada corrida, así que hay redundancia natural.
