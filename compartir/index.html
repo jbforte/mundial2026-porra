@@ -126,6 +126,10 @@ h1 .yr{color:var(--gold)}
 .jchip{background:var(--gold);color:var(--grass-dk);padding:2px 7px;border-radius:5px;
   font-family:var(--cond);font-weight:800;font-size:.72rem;letter-spacing:.03em}
 .inaug{background:#fff;color:var(--grass-dk);padding:2px 7px;border-radius:5px;font-weight:800;font-size:.62rem;letter-spacing:.03em}
+.hoy{background:#dc2626;color:#fff;padding:2px 8px;border-radius:5px;font-weight:800;font-size:.62rem;letter-spacing:.04em;
+  box-shadow:0 0 0 2px rgba(220,38,38,.25);animation:hoypulse 1.6s ease-in-out infinite}
+@keyframes hoypulse{0%,100%{box-shadow:0 0 0 2px rgba(220,38,38,.25)}50%{box-shadow:0 0 0 4px rgba(220,38,38,.12)}}
+.match.is-hoy{box-shadow:0 0 0 2px var(--gold),var(--shadow);order:-1}
 .conf{padding:3px 9px;border-radius:999px;font-size:.64rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase}
 .conf.ALTO{background:#dcfce7;color:#15803d} .conf.MEDIO{background:#fef3c7;color:#b45309} .conf.BAJO{background:#fee2e2;color:#b91c1c}
 .conf.star{box-shadow:inset 0 0 0 1.5px currentColor}
@@ -443,9 +447,16 @@ document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
 /* match card */
 function confClass(c){const b=c.replace('*','');return `conf ${b}${c.includes('*')?' star':''}`;}
 function confTxt(c){const m={ALTO:'Alta',MEDIO:'Media',BAJO:'Baja'};return (m[c.replace('*','')]||c)+(c.includes('*')?' ★':'');}
+const MESES={ene:0,feb:1,mar:2,abr:3,may:4,jun:5,jul:6,ago:7,sep:8,oct:9,nov:10,dic:11};
+function esHoy(fecha){
+  const hoy=new Date();
+  const [d,mes]=fecha.split(' ');
+  return hoy.getDate()===parseInt(d,10) && hoy.getMonth()===MESES[(mes||'').toLowerCase().slice(0,3)];
+}
 function matchCard(m){
   const facts=m.factores.split(' | ').filter(f=>f&&f!=='Equilibrado').map(f=>`<span class="fact">${f}</span>`).join('');
   const inaug=m.id===1?'<span class="inaug">🎉 INAUGURAL</span>':'';
+  const hoy=esHoy(m.fecha)?'<span class="hoy">🔴 HOY</span>':'';
   const jugado=m.resultado!=null;
   const exacto=jugado&&m.amalia===m.resultado;
   const duelCls=!jugado?'pend':(m.amalia_acierto?'win':'lose');
@@ -454,10 +465,10 @@ function matchCard(m){
     : exacto ? '<div class="duel-v exact">🎯 ¡Amalia clavó el marcador exacto!</div>'
     : m.amalia_acierto ? '<div class="duel-v ok">✅ Amalia acertó el resultado</div>'
     : '<div class="duel-v no">❌ Amalia no acertó</div>';
-  return `<div class="match" data-j="${m.j}" data-g="${m.grupo}"
+  return `<div class="match${esHoy(m.fecha)?' is-hoy':''}" data-j="${m.j}" data-g="${m.grupo}"
        data-teams="${(m.local+' '+m.visit).toLowerCase()}" onclick="this.classList.toggle('open')">
     <div class="m-top">
-      <div class="m-meta"><span class="jchip">J${m.j}</span>${inaug} ${m.fecha} · ${m.sede}</div>
+      <div class="m-meta"><span class="jchip">J${m.j}</span>${hoy}${inaug} ${m.fecha} · ${m.sede}</div>
       <span class="${confClass(m.conf)}">${confTxt(m.conf)}</span>
     </div>
     <div class="m-teams">
@@ -494,7 +505,12 @@ function matchCard(m){
     <div class="hint">toca para ver el análisis ▾</div>
   </div>`;
 }
-document.getElementById('matches').innerHTML = DATA.matches.map(matchCard).join('');
+// Partidos de hoy primero (por hora), el resto en su orden cronológico habitual
+const matchesOrden=[...DATA.matches].sort((a,b)=>{
+  const ha=esHoy(a.fecha)?0:1, hb=esHoy(b.fecha)?0:1;
+  return ha-hb || a.id-b.id;
+});
+document.getElementById('matches').innerHTML = matchesOrden.map(matchCard).join('');
 
 /* grupo pills */
 const grupos=Object.keys(DATA.groups);
