@@ -1,12 +1,17 @@
 name: Actualizar resultados Mundial 2026
 
 on:
+  # Cambios de código en la web → republicar siempre (no dependen de datos nuevos)
+  push:
+    branches: [main]
+    paths:
+      - 'compartir/**'
+      - '.github/workflows/**'
   schedule:
-    # Sondeo cada 30 min. Más robusto que crons puntuales: si GitHub salta una
-    # ejecución, la siguiente recoge el resultado. Repo público => Actions gratis
-    # e ilimitado. Solo publica en Pages si hay un resultado nuevo (git diff).
+    # Sondeo de respaldo cada 30 min (el disparo fiable lo hace cron-job.org cada
+    # 15 min vía workflow_dispatch). Solo publica si hay un resultado nuevo.
     - cron: '*/30 * * * *'
-  workflow_dispatch: {}   # ejecución manual desde la pestaña Actions
+  workflow_dispatch: {}   # disparo de cron-job.org y manual
 
 permissions:
   contents: write   # commit del HTML actualizado
@@ -53,16 +58,16 @@ jobs:
 
       # ---- Publicar en Pages solo si hubo cambios ----
       - name: Configurar Pages
-        if: steps.chk.outputs.changed == 'true'
+        if: steps.chk.outputs.changed == 'true' || github.event_name == 'push'
         uses: actions/configure-pages@v5
 
       - name: Subir artefacto (carpeta compartir)
-        if: steps.chk.outputs.changed == 'true'
+        if: steps.chk.outputs.changed == 'true' || github.event_name == 'push'
         uses: actions/upload-pages-artifact@v3
         with:
           path: compartir
 
       - name: Desplegar a GitHub Pages
-        if: steps.chk.outputs.changed == 'true'
+        if: steps.chk.outputs.changed == 'true' || github.event_name == 'push'
         id: deployment
         uses: actions/deploy-pages@v4
